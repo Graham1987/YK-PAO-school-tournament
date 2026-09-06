@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;ATP PE Tournament&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>* { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body { background-color: #0f172a; color: #f8fafc; padding-bottom: 3rem; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.container { max-width: 480px; margin: 0 auto; padding: 1rem; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>header { text-align: center; margin: 1rem 0 1.5rem; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1 { color: #fbbf24; font-size: 1.5rem; font-weight: 900; letter-spacing: 0.05em; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.subtitle { color: #94a3b8; font-size: 0.75rem; margin-top: 0.25rem; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tabs { display: flex; background: #1e293b; border-radius: 0.5rem; padding: 0.25rem; margin-bottom: 1rem; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tab-btn { flex: 1; padding: 0.5rem; border: none; border-radius: 0.375rem; font-size: 0.75rem; font-weight: 600; cursor: pointer; color: #94a3b8; background: transparent; transition: 0.2s; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tab-btn.active { background: #f59e0b; color: #020617; font-weight: 700; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card { background: #1e293b; border-radius: 0.75rem; padding: 1rem; margin-bottom: 0.75rem; border: 1px solid #334155; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.row { display: flex; justify-content: space-between; align-items: center; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.rank-num { font-weight: 900; width: 2rem; font-size: 0.9rem; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.top-rank { color: #fbbf24; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.player-name { font-weight: 700; font-size: 0.95rem; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.meta-text { font-size: 0.75rem; color: #94a3b8; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.score-badge { font-weight: 800; font-size: 0.95rem; color: #fbbf24; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.form-group { margin-bottom: 1rem; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>label { display: block; font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.35rem; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>select, textarea, input { width: 100%; background: #0f172a; border: 1px solid #334155; border-radius: 0.5rem; padding: 0.6rem; color: #fff; font-size: 0.85rem; outline: none; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>select:focus, textarea:focus { border-color: #f59e0b; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn-primary { width: 100%; background: #f59e0b; color: #020617; font-weight: 700; padding: 0.75rem; border: none; border-radius: 0.5rem; font-size: 0.85rem; cursor: pointer; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn-secondary { width: 100%; background: #334155; color: #fff; font-weight: 600; padding: 0.5rem; border: none; border-radius: 0.5rem; font-size: 0.75rem; cursor: pointer; margin-top: 0.5rem; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn-danger { width: 100%; background: transparent; border: 1px solid #ef4444; color: #f87171; font-weight: 600; padding: 0.5rem; border-radius: 0.5rem; font-size: 0.75rem; cursor: pointer; margin-top: 0.5rem; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hidden { display: none; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h1&gt;ATP PE LADDER&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="subtitle"&gt;Live PE Challenge Tracker&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="tabs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="tab-btn active" id="btn-standings" onclick="switchTab('standings')"&gt;Standings&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="tab-btn" id="btn-match" onclick="switchTab('match')"&gt;Log Match&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="tab-btn" id="btn-roster" onclick="switchTab('roster')"&gt;Roster&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="view-standings"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div id="player-list"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="view-match" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;Challenger (Attacking)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;select id="match-challenger" onchange="filterOpponents()"&gt;&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;Defender (Within 5 Ranks)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;select id="match-opponent"&gt;&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;Outcome&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;select id="match-winner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="challenger"&gt;Challenger Wins&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="opponent"&gt;Defender Holds&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;Student Referee (+0.5 pts)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;select id="match-referee"&gt;&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn-primary" onclick="recordMatch()"&gt;Record Result&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="view-roster" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;Import Students (One name per line)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;textarea id="roster-input" rows="5" placeholder="Lucas&amp;#10;Emma&amp;#10;Noah&amp;#10;Sophia"&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn-secondary" onclick="importStudents()"&gt;Import Class&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn-danger" onclick="resetData()"&gt;Clear Tournament Data&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let players = JSON.parse(localStorage.getItem('pe_tourney_players')) || [</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ id: 1, name: "Lucas M.", points: 7.5, wins: 3, losses: 1, refs: 2 },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ id: 2, name: "Emma R.", points: 6.0, wins: 3, losses: 1, refs: 0 },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ id: 3, name: "Noah T.", points: 5.5, wins: 2, losses: 2, refs: 1 },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ id: 4, name: "Sophia K.", points: 4.0, wins: 1, losses: 2, refs: 2 },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ id: 5, name: "Oliver B.", points: 3.5, wins: 1, losses: 1, refs: 1 },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ id: 6, name: "Mia D.", points: 2.0, wins: 0, losses: 3, refs: 4 }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function persist() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>localStorage.setItem('pe_tourney_players', JSON.stringify(players));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>render();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function switchTab(tab) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>['standings', 'match', 'roster'].forEach(t =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('view-' + t).classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('btn-' + t).classList.remove('active');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('view-' + tab).classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('btn-' + tab).classList.add('active');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (tab === 'match') setupMatchOptions();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function render() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>players.sort((a, b) =&gt; b.points - a.points);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const list = document.getElementById('player-list');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>list.innerHTML = players.map((p, idx) =&gt; `</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="display: flex; align-items: center; gap: 0.5rem;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span class="rank-num ${idx &lt; 3 ? 'top-rank' : ''}"&gt;#${idx + 1}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="player-name"&gt;${p.name}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="meta-text"&gt;Refereed: ${p.refs} games&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="text-align: right;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="score-badge"&gt;${p.points.toFixed(1)} pts&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="meta-text"&gt;${p.wins}W - ${p.losses}L&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>`).join('');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function setupMatchOptions() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>players.sort((a, b) =&gt; b.points - a.points);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const challengerSelect = document.getElementById('match-challenger');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const refSelect = document.getElementById('match-referee');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>challengerSelect.innerHTML = players.map((p, i) =&gt; `&lt;option value="${p.id}"&gt;${p.name} (#${i + 1})&lt;/option&gt;`).join('');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>refSelect.innerHTML = '&lt;option value=""&gt;-- No Referee --&lt;/option&gt;' + players.map(p =&gt; `&lt;option value="${p.id}"&gt;${p.name}&lt;/option&gt;`).join('');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>filterOpponents();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function filterOpponents() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>players.sort((a, b) =&gt; b.points - a.points);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const cId = parseInt(document.getElementById('match-challenger').value);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const cIdx = players.findIndex(p =&gt; p.id === cId);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const minIdx = Math.max(0, cIdx - 5);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const eligible = players.filter((p, i) =&gt; i &gt;= minIdx &amp;&amp; p.id !== cId);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('match-opponent').innerHTML = eligible.map(p =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const pIdx = players.indexOf(p) + 1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return `&lt;option value="${p.id}"&gt;${p.name} (#${pIdx})&lt;/option&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}).join('');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function recordMatch() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const cId = parseInt(document.getElementById('match-challenger').value);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const oId = parseInt(document.getElementById('match-opponent').value);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const rId = parseInt(document.getElementById('match-referee').value);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const winner = document.getElementById('match-winner').value;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!cId || !oId || cId === oId) return alert('Select two distinct players.');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const cIdx = players.findIndex(p =&gt; p.id === cId);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const oIdx = players.findIndex(p =&gt; p.id === oId);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const challenger = players[cIdx];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const opponent = players[oIdx];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const rankDiff = Math.max(0, cIdx - oIdx);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (winner === 'challenger') {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>challenger.points += (1.0 + (rankDiff * 0.5));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>challenger.wins++;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>opponent.losses++;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>opponent.points += 1.0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>opponent.wins++;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>challenger.points += 0.5;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>challenger.losses++;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (rId) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const referee = players.find(p =&gt; p.id === rId);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (referee &amp;&amp; referee.id !== cId &amp;&amp; referee.id !== oId) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>referee.points += 0.5;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>referee.refs++;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>persist();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>switchTab('standings');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function importStudents() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const val = document.getElementById('roster-input').value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!val) return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const names = val.split('\n').map(n =&gt; n.trim()).filter(n =&gt; n.length &gt; 0);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>players = names.map((name, i) =&gt; ({ id: Date.now() + i, name, points: 0.0, wins: 0, losses: 0, refs: 0 }));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('roster-input').value = '';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>persist();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>switchTab('standings');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function resetData() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (confirm('Clear all player data and reset scores?')) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>players = [];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>persist();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>render();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
