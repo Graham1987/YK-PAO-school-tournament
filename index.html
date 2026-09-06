@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>ATP PE Tournament</title>
+  <title>ATP PE Tournament - YK Pao School</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
     body { background-color: #f8fafc; color: #1e293b; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
@@ -11,77 +11,83 @@
     .app-shell { display: flex; flex-direction: column; height: 100vh; max-width: 768px; margin: 0 auto; width: 100%; position: relative; background: #ffffff; }
 
     /* Top Navigation Bars */
-    .top-bar { height: 56px; display: flex; align-items: center; justify-content: center; position: relative; font-weight: 700; font-size: 0.95rem; color: #0f172a; border-bottom: 1px solid #f1f5f9; padding: 0 1rem; flex-shrink: 0; }
+    .top-bar { height: 58px; display: flex; align-items: center; justify-content: center; position: relative; font-weight: 700; font-size: 0.95rem; color: #0f172a; border-bottom: 1px solid #f1f5f9; padding: 0 1rem; flex-shrink: 0; }
     .top-bar.bar-referee { background-color: #f59e0b; color: #ffffff; border-bottom: none; }
     .top-bar.bar-winner { background-color: #2e7d32; color: #ffffff; border-bottom: none; }
     .top-bar.bar-loser { background-color: #c62828; color: #ffffff; border-bottom: none; }
     
-    .nav-btn-left { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 1.25rem; cursor: pointer; color: inherit; display: flex; align-items: center; }
+    .nav-btn-left { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 1.35rem; cursor: pointer; color: inherit; display: flex; align-items: center; }
     .nav-icons-right { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); display: flex; gap: 0.85rem; font-size: 1.15rem; cursor: pointer; color: #475569; }
+
+    /* Top Bar Mini Logo (Aspect ratio tailored for YK Pao banner) */
+    .topbar-logo { height: 26px; max-width: 105px; width: auto; object-fit: contain; position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); }
 
     /* Content Area */
     .content-area { flex: 1; overflow-y: auto; padding: 1rem; padding-bottom: 6rem; }
 
-    /* Home View */
-    .home-hero { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 75vh; text-align: center; }
-    .home-title { font-size: 1.85rem; font-weight: 900; color: #1e3a8a; margin-bottom: 0.25rem; letter-spacing: -0.02em; }
+    /* Home View (Wide logo treatment) */
+    .home-hero { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 75vh; text-align: center; padding: 0 1rem; }
+    .home-logo { width: 85%; max-width: 320px; height: auto; object-fit: contain; margin-bottom: 1.5rem; }
+    .home-title { font-size: 1.75rem; font-weight: 900; color: #2e7d32; margin-bottom: 0.25rem; letter-spacing: -0.02em; }
     .home-subtitle { font-size: 0.85rem; color: #64748b; margin-bottom: 2rem; }
-    .home-nav-box { width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 0.75rem; }
+    .home-nav-box { width: 100%; max-width: 340px; display: flex; flex-direction: column; gap: 0.75rem; }
     .btn-home-primary { background: #255d8f; color: #fff; border: none; border-radius: 10px; padding: 0.85rem; font-weight: 700; font-size: 0.9rem; cursor: pointer; }
     .btn-home-outline { background: #fff; color: #255d8f; border: 1.5px solid #255d8f; border-radius: 10px; padding: 0.85rem; font-weight: 700; font-size: 0.9rem; cursor: pointer; }
 
-    /* Info Cards & Scoring Matrix */
-    .info-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; }
-    .info-card-header { display: flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 0.9rem; color: #0f172a; margin-bottom: 0.5rem; }
-    .info-card p, .info-card li { font-size: 0.8rem; color: #475569; line-height: 1.4; }
-    .info-card ul { padding-left: 1.25rem; margin-top: 0.35rem; }
-    .score-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.8rem; }
-    .score-table tr { border-bottom: 1px solid #f1f5f9; }
-    .score-table td { padding: 0.45rem 0.25rem; }
-    .score-tag-win { display: inline-block; padding: 2px 8px; border-radius: 12px; font-weight: 700; font-size: 0.75rem; background: #dcfce7; color: #15803d; }
-    .score-tag-defend { display: inline-block; padding: 2px 8px; border-radius: 12px; font-weight: 700; font-size: 0.75rem; background: #ffedd5; color: #c2410c; }
-    .defeat-alert { background: #fef2f2; border: 1px solid #fee2e2; color: #b91c1c; padding: 0.5rem; border-radius: 6px; font-size: 0.75rem; margin-top: 0.75rem; }
-
-    /* Player Cards & Badges */
-    .player-card { background: #f8fafc; border-radius: 12px; padding: 0.75rem 1rem; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: space-between; cursor: pointer; border: 1px solid #e2e8f0; transition: background 0.1s; }
-    .player-card:active { background: #f1f5f9; }
+    /* Player Cards & Rankings */
+    .player-card { background: #f3f4f9; border-radius: 12px; padding: 0.75rem 1rem; margin-bottom: 0.55rem; display: flex; align-items: center; justify-content: space-between; cursor: pointer; border: 1px solid #e5e7eb; transition: background 0.1s; }
+    .player-card:active { background: #e5e7eb; }
     .player-info-group { display: flex; align-items: center; gap: 0.75rem; }
-    .rank-circle { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; color: #ffffff; background-color: #f59e0b; flex-shrink: 0; }
-    .rank-circle.rank-secondary { background-color: #94a3b8; }
+    .rank-circle { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; color: #ffffff; background-color: #255d8f; flex-shrink: 0; }
+    .rank-circle.rank-gold { background-color: #f59e0b; }
+    .rank-circle.rank-silver { background-color: #94a3b8; }
+    .rank-circle.rank-bronze { background-color: #ea580c; }
     .avatar-initials { width: 34px; height: 34px; border-radius: 50%; background: #dbeafe; color: #1e40af; font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
     .player-name { font-size: 0.9rem; font-weight: 600; color: #1e293b; }
     .player-points { font-size: 0.75rem; color: #64748b; margin-top: 1px; }
 
-    /* Podiums View */
-    .podium-container { display: flex; justify-content: center; align-items: flex-end; gap: 0.5rem; margin: 1.5rem 0 2rem; height: 180px; }
-    .podium-step { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; width: 30%; }
-    .podium-box { width: 100%; border-radius: 8px 8px 0 0; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; color: #fff; }
-    .podium-1 { height: 120px; background: #f59e0b; }
-    .podium-2 { height: 90px; background: #94a3b8; }
-    .podium-3 { height: 65px; background: #b45309; }
-    .podium-name { font-size: 0.75rem; font-weight: 700; margin-bottom: 0.35rem; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 90px; }
-    .podium-pts { font-size: 0.65rem; color: #64748b; margin-bottom: 0.25rem; }
+    /* Statistics Metric Tiles */
+    .metrics-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem; text-align: center; margin-bottom: 1.25rem; }
+    .metric-box { background: #ffffff; padding: 0.75rem 0.25rem; border-radius: 12px; border: 1px solid #f1f5f9; box-shadow: 0 1px 3px rgba(0,0,0,0.03); }
+    .metric-icon { font-size: 1.25rem; margin-bottom: 0.15rem; }
+    .metric-value { font-size: 1.35rem; font-weight: 800; }
+    .metric-label { font-size: 0.65rem; color: #64748b; margin-top: 0.15rem; }
+    .val-blue { color: #0284c7; }
+    .val-green { color: #16a34a; }
+    .val-orange { color: #ea580c; }
 
-    /* Settings & Forms */
-    .setting-section-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #64748b; margin: 1.25rem 0 0.5rem 0.25rem; }
-    .setting-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1rem; margin-bottom: 0.75rem; }
-    .setting-row { display: flex; justify-content: space-between; align-items: center; }
-    .setting-input { width: 100%; border: 1px solid #cbd5e1; border-radius: 6px; padding: 0.55rem; font-size: 0.85rem; margin-top: 0.5rem; outline: none; }
-    .setting-textarea { width: 100%; border: 1px solid #cbd5e1; border-radius: 6px; padding: 0.55rem; font-size: 0.8rem; font-family: monospace; outline: none; }
+    /* Podium Cards */
+    .podium-section-header { display: flex; align-items: center; gap: 0.5rem; font-size: 1rem; font-weight: 800; color: #0f172a; margin-bottom: 0.85rem; }
+    .podium-card { border-radius: 14px; padding: 1rem; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between; border-width: 1.5px; border-style: solid; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+    .podium-card.gold { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-color: #fde047; }
+    .podium-card.silver { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-color: #cbd5e1; }
+    .podium-card.bronze { background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border-color: #fdba74; }
+    
+    .medal-icon { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; font-weight: 800; color: #fff; flex-shrink: 0; }
+    .medal-icon.gold { background: #f59e0b; box-shadow: 0 2px 5px rgba(245,158,11,0.4); }
+    .medal-icon.silver { background: #94a3b8; box-shadow: 0 2px 5px rgba(148,163,184,0.4); }
+    .medal-icon.bronze { background: #ea580c; box-shadow: 0 2px 5px rgba(234,88,12,0.4); }
+
+    .podium-player-name { font-size: 0.95rem; font-weight: 700; color: #0f172a; }
+    .podium-player-meta { font-size: 0.75rem; color: #64748b; margin-top: 2px; }
+    .podium-count-val { font-size: 1.5rem; font-weight: 900; text-align: right; line-height: 1; }
+    .podium-count-label { font-size: 0.65rem; color: #64748b; margin-top: 2px; text-align: right; }
+    .progression-pill { display: inline-block; padding: 2px 6px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; background: #dcfce7; color: #15803d; margin-top: 2px; }
+
+    /* Dots Pager */
+    .pager-dots { display: flex; justify-content: center; gap: 0.5rem; margin: 1rem 0; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #cbd5e1; cursor: pointer; }
+    .dot.active { width: 22px; border-radius: 10px; background: #255d8f; transition: width 0.2s ease; }
 
     /* Bottom Action Bars */
     .bottom-actions { position: absolute; bottom: 0; left: 0; right: 0; background: #ffffff; border-top: 1px solid #f1f5f9; padding: 0.75rem 1rem; display: flex; gap: 0.75rem; justify-content: space-between; align-items: center; }
     .btn-action-primary { flex: 1; background-color: #255d8f; color: #ffffff; border: none; border-radius: 24px; padding: 0.75rem; font-size: 0.8rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.35rem; }
     .btn-action-outline { flex: 1; background-color: #ffffff; color: #255d8f; border: 1.5px solid #255d8f; border-radius: 24px; padding: 0.75rem; font-size: 0.8rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.35rem; }
 
-    /* Floating Add Button */
-    .fab-add { position: absolute; bottom: 4.5rem; right: 1.25rem; width: 44px; height: 44px; border-radius: 12px; background: #dbeafe; color: #1e40af; border: none; font-size: 1.25rem; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.06); }
-
     /* Modals */
     .modal-backdrop { position: fixed; inset: 0; background-color: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center; z-index: 50; padding: 1rem; }
     .modal-card { background: #ffffff; border-radius: 18px; width: 100%; max-width: 340px; padding: 1.25rem; text-align: center; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); max-height: 90vh; overflow-y: auto; }
     .modal-title { font-size: 1.05rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem; }
-    .modal-input { width: 100%; padding: 0.65rem 0.75rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem; margin-bottom: 1rem; outline: none; }
     .modal-btn-row { display: flex; justify-content: space-between; border-top: 1px solid #f1f5f9; padding-top: 0.75rem; margin-top: 0.75rem; }
     .modal-btn-row button { background: none; border: none; font-size: 0.85rem; font-weight: 600; cursor: pointer; padding: 0.25rem 0.5rem; color: #2563eb; }
 
@@ -103,7 +109,10 @@
     .banner-ref { background-color: #fffbeb; color: #92400e; border: 1px solid #fef3c7; }
     .banner-winner { background-color: #f0fdf4; color: #166534; border: 1px solid #dcfce7; }
 
-    .badge-pill { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 700; background: #e2e8f0; color: #475569; }
+    .setting-section-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #64748b; margin: 1.25rem 0 0.5rem 0.25rem; }
+    .setting-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1rem; margin-bottom: 0.75rem; }
+    .setting-input { width: 100%; border: 1px solid #cbd5e1; border-radius: 6px; padding: 0.55rem; font-size: 0.85rem; margin-top: 0.5rem; outline: none; }
+    .setting-textarea { width: 100%; border: 1px solid #cbd5e1; border-radius: 6px; padding: 0.55rem; font-size: 0.8rem; font-family: monospace; outline: none; }
 
     .hidden { display: none !important; }
   </style>
@@ -111,18 +120,20 @@
 <body>
 <div class="app-shell">
 
-  <!-- 1. HOME SCREEN -->
+  <!-- 1. HOME SCREEN (With YK Pao Logo) -->
   <section id="screen-home">
     <div class="top-bar">
-      ATP PE
+      ATP PE Tournament
       <div class="nav-icons-right">
         <span onclick="showScreen('screen-info')">ⓘ</span>
         <span onclick="showScreen('screen-settings')">⚙️</span>
       </div>
     </div>
     <div class="content-area home-hero">
-      <h1 class="home-title">ATP PE</h1>
-      <p class="home-subtitle">PE Ladder Tournament</p>
+      <img src="YKPlogo.png" alt="YK Pao School" class="home-logo" onerror="this.style.display='none'" />
+      
+      <h1 class="home-title">PE LADDER</h1>
+      <p class="home-subtitle">YK Pao School Physical Education</p>
       <div class="home-nav-box">
         <button class="btn-home-primary" onclick="openTournaments()">👤 TOURNAMENT</button>
         <button class="btn-home-outline" onclick="openGroups()">👥 CLASS ROSTERS</button>
@@ -137,33 +148,12 @@
       Information
     </div>
     <div class="content-area">
-      <div class="info-card">
-        <div class="info-card-header">🏆 ATP PE Tournament</div>
-        <p>Organize dynamic ladder tournaments where players challenge higher-ranked opponents to win points and climb the standings.</p>
-      </div>
-      <div class="info-card">
-        <div class="info-card-header">🤺 Challenge Rules</div>
-        <ul>
-          <li>Players can only challenge opponents ranked above them.</li>
-          <li>Maximum allowed rank gap is <strong>5 ranks</strong>.</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <div class="info-card-header">🔢 Points System</div>
-        <p>Points earned depend on the rank gap between the players:</p>
-        <table class="score-table">
-          <tr><td>Opponent +5 ranks</td><td align="right"><span class="score-tag-win">5.5 pts</span></td></tr>
-          <tr><td>Opponent +4 ranks</td><td align="right"><span class="score-tag-win">5.0 pts</span></td></tr>
-          <tr><td>Opponent +3 ranks</td><td align="right"><span class="score-tag-win">4.5 pts</span></td></tr>
-          <tr><td>Opponent +2 ranks</td><td align="right"><span class="score-tag-win">4.0 pts</span></td></tr>
-          <tr><td>Opponent +1 rank</td><td align="right"><span class="score-tag-win">3.5 pts</span></td></tr>
-          <tr><td>Opponent -1 rank</td><td align="right"><span class="score-tag-defend">3.0 pts</span></td></tr>
-          <tr><td>Opponent -2 ranks</td><td align="right"><span class="score-tag-defend">2.5 pts</span></td></tr>
-          <tr><td>Opponent -3 ranks</td><td align="right"><span class="score-tag-defend">2.0 pts</span></td></tr>
-          <tr><td>Opponent -4 ranks</td><td align="right"><span class="score-tag-defend">1.5 pts</span></td></tr>
-          <tr><td>Opponent -5 ranks</td><td align="right"><span class="score-tag-defend">1.0 pt</span></td></tr>
-        </table>
-        <div class="defeat-alert">ⓘ In case of defeat, the losing player always receives <strong>0.5 points</strong>.</div>
+      <div class="setting-card">
+        <div style="font-weight: 700; margin-bottom: 0.5rem;">🏆 Challenge & Scoring Rules</div>
+        <p style="font-size: 0.8rem; color: #475569; line-height: 1.4;">
+          Players can challenge opponents up to <strong>5 ranks above them</strong>. 
+          Winners earn points scaled by the gap (from 3.5 to 5.5 pts). Losers receive 0.5 pts consolation. Referees earn 0.5 pts participation.
+        </p>
       </div>
     </div>
   </section>
@@ -177,59 +167,55 @@
     <div class="content-area">
       <div class="setting-section-title">Security & Teacher Controls</div>
       <div class="setting-card">
-        <div class="setting-row">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
           <span style="font-weight: 600; font-size: 0.85rem;">Confirmation Code (PIN)</span>
           <input type="checkbox" id="setting-pin-toggle" onchange="togglePinSetting()" />
         </div>
-        <p style="font-size: 0.75rem; color: #64748b; margin-top: 0.35rem;">Protects manual score adjustments, gap overrides, and stats export.</p>
         <input type="password" id="setting-pin-code" class="setting-input hidden" placeholder="4-digit PIN" maxlength="6" value="1234" />
       </div>
 
-      <div class="setting-section-title">Tournament Rules</div>
+      <div class="setting-section-title">Rules</div>
       <div class="setting-card">
-        <label style="font-size: 0.85rem; font-weight: 600;">Referee / Umpire Points</label>
-        <p style="font-size: 0.75rem; color: #64748b; margin-bottom: 0.5rem;">Points awarded to a student for officiating a match.</p>
+        <label style="font-size: 0.85rem; font-weight: 600;">Referee Points</label>
         <input type="number" step="0.1" id="setting-ref-points" class="setting-input" value="0.5" />
         <button class="btn-action-primary" style="margin-top: 0.75rem; width: 100%;" onclick="saveSettings()">Save Settings</button>
       </div>
 
-      <div class="setting-section-title">Data Backup</div>
+      <div class="setting-section-title">Gradebook Export</div>
       <div class="setting-card">
-        <button class="btn-home-outline" style="width: 100%;" onclick="exportStandingsCSV()">📥 Export Gradebook to CSV</button>
+        <button class="btn-home-outline" style="width: 100%;" onclick="exportStandingsCSV()">📥 Export Standings to CSV</button>
       </div>
     </div>
   </section>
 
-  <!-- 4. ROSTER SETUP (Supports Excel / CSV Batch Import) -->
+  <!-- 4. ROSTER SETUP -->
   <section id="screen-setup" class="hidden">
     <div class="top-bar">
       <button class="nav-btn-left" onclick="showScreen('screen-home')">‹</button>
       Class Roster
     </div>
     <div class="content-area">
-      <div class="setting-card" style="margin-bottom: 1rem;">
-        <label style="font-size: 0.8rem; font-weight: 700; color: #1e3a8a;">📋 Quick Import from Excel / CSV</label>
-        <p style="font-size: 0.75rem; color: #64748b; margin-bottom: 0.5rem;">Paste a column of student names below:</p>
-        <textarea id="batch-roster-input" class="setting-textarea" rows="4" placeholder="Lucas Miller&#10;Emma Wilson&#10;Noah Davis"></textarea>
-        <button class="btn-action-primary" style="margin-top: 0.5rem; width: 100%; padding: 0.6rem;" onclick="importBatchRoster()">Import Class</button>
+      <div class="setting-card">
+        <label style="font-size: 0.8rem; font-weight: 700; color: #1e3a8a;">📋 Paste from Excel / CSV</label>
+        <textarea id="batch-roster-input" class="setting-textarea" rows="4" placeholder="Denis Julia&#10;Bernard Lucas&#10;Blanc Camille"></textarea>
+        <button class="btn-action-primary" style="margin-top: 0.5rem; width: 100%; padding: 0.6rem;" onclick="importBatchRoster()">Import Names</button>
       </div>
       <div id="setup-player-list"></div>
     </div>
-    <button class="fab-add" onclick="openAddModal()">+👤</button>
     <div class="bottom-actions">
       <button class="btn-action-primary" onclick="startTournament()">✔ Launch Tournament</button>
     </div>
   </section>
 
-  <!-- 5. TOURNAMENT STANDINGS & LIVE DASHBOARD -->
+  <!-- 5. TOURNAMENT STANDINGS (With YK Pao Mini Logo on top left) -->
   <section id="screen-standings" class="hidden">
     <div class="top-bar" style="flex-direction: column; height: 60px;">
       <button class="nav-btn-left" onclick="showScreen('screen-home')">‹</button>
-      <div style="font-size: 0.9rem; font-weight: 700;">Tournament 1</div>
-      <div style="font-size: 0.7rem; color: #64748b;" id="player-count-label">0 players</div>
+      <img src="YKPlogo.png" alt="Logo" class="topbar-logo" style="left: 3rem;" onerror="this.style.display='none'" />
+      <div style="font-size: 0.95rem; font-weight: 800;" id="tourney-name-header">Badminton</div>
+      <div style="font-size: 0.7rem; color: #64748b;" id="player-count-label">25 players</div>
       <div class="nav-icons-right">
-        <span title="Podiums & Stats" onclick="showScreen('screen-podiums'); renderPodiums();">🏆</span>
-        <span title="Undo Last Match" onclick="undoLastMatch()">↩️</span>
+        <span title="Collective Statistics & Podiums" onclick="openStatistics()">📊</span>
       </div>
     </div>
     <div class="content-area">
@@ -241,34 +227,53 @@
     </div>
   </section>
 
-  <!-- 6. PODIUMS & STATISTICS SCREEN -->
-  <section id="screen-podiums" class="hidden">
+  <!-- 6. COLLECTIVE STATISTICS & PODIUMS -->
+  <section id="screen-stats" class="hidden">
     <div class="top-bar">
       <button class="nav-btn-left" onclick="showScreen('screen-standings')">‹</button>
-      Tournament Podiums
+      <span id="stats-title-label">Statistics - Badminton</span>
     </div>
     <div class="content-area">
-      <div class="podium-container" id="podium-graphics"></div>
+      <div class="metrics-row">
+        <div class="metric-box">
+          <div class="metric-icon">🎾</div>
+          <div class="metric-value val-blue" id="stat-total-matches">15</div>
+          <div class="metric-label">Matches played</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-icon">📊</div>
+          <div class="metric-value val-green" id="stat-avg-matches">1.2</div>
+          <div class="metric-label">Avg/player</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-icon">📢</div>
+          <div class="metric-value val-orange" id="stat-avg-refs">0.5</div>
+          <div class="metric-label">Officiated/player</div>
+        </div>
+      </div>
 
-      <div class="setting-section-title">Special Honors</div>
-      <div class="info-card" id="honors-card"></div>
+      <div class="podium-section-header" id="podium-category-header">🎾 Most matches played</div>
+      <div id="podium-cards-container"></div>
 
-      <button class="btn-home-outline" style="width: 100%; margin-top: 1rem;" onclick="exportStandingsCSV()">📥 Download Full Class CSV</button>
+      <div class="pager-dots">
+        <div class="dot active" id="dot-0" onclick="setPodiumPage(0)"></div>
+        <div class="dot" id="dot-1" onclick="setPodiumPage(1)"></div>
+        <div class="dot" id="dot-2" onclick="setPodiumPage(2)"></div>
+        <div class="dot" id="dot-3" onclick="setPodiumPage(3)"></div>
+      </div>
     </div>
   </section>
 
-  <!-- 7. MATCH FLOW: REFEREE SELECTION -->
+  <!-- 7. REFEREE SELECTION -->
   <section id="screen-referee" class="hidden">
     <div class="top-bar bar-referee">
       <button class="nav-btn-left" onclick="showScreen('screen-standings')">‹</button>
       Select Referee
     </div>
-    <div class="content-area">
-      <div id="referee-pick-list"></div>
-    </div>
+    <div class="content-area"><div id="referee-pick-list"></div></div>
   </section>
 
-  <!-- 8. MATCH FLOW: WINNER SELECTION -->
+  <!-- 8. WINNER SELECTION -->
   <section id="screen-winner" class="hidden">
     <div class="top-bar bar-winner">
       <button class="nav-btn-left" onclick="showScreen('screen-standings')">‹</button>
@@ -282,7 +287,7 @@
     </div>
   </section>
 
-  <!-- 9. MATCH FLOW: LOSER SELECTION -->
+  <!-- 9. LOSER SELECTION -->
   <section id="screen-loser" class="hidden">
     <div class="top-bar bar-loser">
       <button class="nav-btn-left" onclick="showScreen('screen-winner')">‹</button>
@@ -295,34 +300,6 @@
       <div id="loser-pick-list"></div>
     </div>
   </section>
-
-  <!-- MODAL: ADD PLAYER INDIVIDUALLY -->
-  <div id="modal-add" class="modal-backdrop hidden">
-    <div class="modal-card">
-      <div class="modal-title">Add a Player</div>
-      <input type="text" id="input-player-name" class="modal-input" placeholder="Student Full Name" />
-      <div class="modal-btn-row">
-        <button onclick="closeAddModal()">Cancel</button>
-        <button style="font-weight: 700;" onclick="saveNewPlayer()">Add</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL: STUDENT DETAILS & POTENTIAL OPPONENTS (From Screenshot Description) -->
-  <div id="modal-student-detail" class="modal-backdrop hidden">
-    <div class="modal-card">
-      <div class="modal-title" id="detail-student-name">Student Stats</div>
-      <div style="font-size: 0.8rem; color: #64748b; margin-bottom: 1rem;" id="detail-student-metrics">3.0 pts • 2W - 1L • 1 Ref</div>
-      
-      <div style="text-align: left; margin-bottom: 0.5rem; font-size: 0.8rem; font-weight: 700; color: #1e3a8a;">Eligible Challenge Targets:</div>
-      <div id="detail-targets-list" style="text-align: left; max-height: 200px; overflow-y: auto;"></div>
-
-      <div class="modal-btn-row">
-        <button onclick="closeStudentDetailModal()">Close</button>
-        <button style="color: #dc2626;" onclick="promptManualEdit()">Edit Points</button>
-      </div>
-    </div>
-  </div>
 
   <!-- MODAL: CONFIRM MATCH RESULT -->
   <div id="modal-confirm" class="modal-backdrop hidden">
@@ -355,25 +332,31 @@
 </div>
 
 <script>
+  let tournamentName = "Badminton";
+  
   let players = JSON.parse(localStorage.getItem('pe_atp_players')) || [
-    { id: 1, name: "Graham Graham", points: 3.0, wins: 0, losses: 0, refs: 0 },
-    { id: 2, name: "OD OD", points: 2.0, wins: 0, losses: 0, refs: 0 },
-    { id: 3, name: "GrahamOD GrahamOD", points: 1.0, wins: 0, losses: 0, refs: 0 }
+    { id: 1, name: "Denis Julia", points: 28.5, wins: 8, losses: 2, refs: 1, initialRank: 6 },
+    { id: 2, name: "Bernard Lucas", points: 25.5, wins: 7, losses: 3, refs: 2, initialRank: 2 },
+    { id: 3, name: "Blanc Camille", points: 24.0, wins: 6, losses: 3, refs: 1, initialRank: 3 },
+    { id: 4, name: "Fournier Théo", points: 23.5, wins: 5, losses: 4, refs: 0, initialRank: 4 },
+    { id: 5, name: "Boyer Lisa", points: 23.5, wins: 5, losses: 4, refs: 2, initialRank: 5 },
+    { id: 6, name: "Garcia Inès", points: 23.0, wins: 5, losses: 3, refs: 1, initialRank: 6 },
+    { id: 7, name: "Clement Raphaël", points: 23.0, wins: 4, losses: 4, refs: 3, initialRank: 7 },
+    { id: 8, name: "David Arthur", points: 21.5, wins: 4, losses: 5, refs: 1, initialRank: 8 },
+    { id: 9, name: "Morel Zoé", points: 20.0, wins: 6, losses: 2, refs: 3, initialRank: 18 },
+    { id: 10, name: "Roux Lola", points: 19.5, wins: 6, losses: 4, refs: 0, initialRank: 23 },
+    { id: 11, name: "Thomas Léa", points: 18.0, wins: 3, losses: 6, refs: 4, initialRank: 24 },
+    { id: 12, name: "Moreau Nathan", points: 17.5, wins: 4, losses: 5, refs: 0, initialRank: 22 }
   ];
 
-  let config = JSON.parse(localStorage.getItem('pe_atp_config')) || {
-    refPoints: 0.5,
-    pinEnabled: false,
-    pinCode: "1234"
-  };
-
+  let config = JSON.parse(localStorage.getItem('pe_atp_config')) || { refPoints: 0.5, pinEnabled: false, pinCode: "1234" };
   let matchHistory = JSON.parse(localStorage.getItem('pe_atp_history')) || [];
 
+  let currentPodiumPage = 0;
   let hasReferee = false;
   let selectedRef = null;
   let selectedWinner = null;
   let selectedLoser = null;
-  let currentViewingPlayer = null;
 
   function persist() {
     localStorage.setItem('pe_atp_players', JSON.stringify(players));
@@ -381,12 +364,8 @@
     localStorage.setItem('pe_atp_history', JSON.stringify(matchHistory));
   }
 
-  function getInitials(name) {
-    return name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase() || 'P';
-  }
-
   function showScreen(screenId) {
-    ['screen-home', 'screen-info', 'screen-settings', 'screen-setup', 'screen-standings', 'screen-podiums', 'screen-referee', 'screen-winner', 'screen-loser'].forEach(id => {
+    ['screen-home', 'screen-info', 'screen-settings', 'screen-setup', 'screen-standings', 'screen-stats', 'screen-referee', 'screen-winner', 'screen-loser'].forEach(id => {
       document.getElementById(id).classList.add('hidden');
     });
     document.getElementById(screenId).classList.remove('hidden');
@@ -402,38 +381,147 @@
     renderSetupList();
   }
 
-  /* Standings */
   function renderStandings() {
     players.sort((a, b) => b.points - a.points);
     document.getElementById('player-count-label').innerText = `${players.length} players`;
+    document.getElementById('tourney-name-header').innerText = tournamentName;
+
     const list = document.getElementById('tournament-player-list');
-    list.innerHTML = players.map((p, idx) => `
-      <div class="player-card" onclick="openStudentDetail(${p.id})">
-        <div class="player-info-group">
-          <div class="rank-circle ${idx === 1 ? 'rank-secondary' : ''}">${idx + 1}</div>
-          <div>
+    list.innerHTML = players.map((p, idx) => {
+      let badgeClass = "rank-circle";
+      if (idx === 0) badgeClass += " rank-gold";
+      else if (idx === 1) badgeClass += " rank-silver";
+      else if (idx === 2) badgeClass += " rank-bronze";
+
+      return `
+        <div class="player-card">
+          <div class="player-info-group">
+            <div class="${badgeClass}">${idx + 1}</div>
             <div class="player-name">${p.name} - ${p.points.toFixed(1)} pts</div>
-            <div class="player-points">${p.wins}W - ${p.losses}L • Ref: ${p.refs}</div>
           </div>
         </div>
-        <span style="color: #94a3b8; font-size: 0.8rem;">›</span>
-      </div>
-    `).join('');
+      `;
+    }).join('');
   }
 
-  /* Roster Setup & Batch Import */
+  function openStatistics() {
+    showScreen('screen-stats');
+    document.getElementById('stats-title-label').innerText = `Statistics - ${tournamentName}`;
+    
+    const totalMatches = players.reduce((sum, p) => sum + p.wins + p.losses, 0) / 2;
+    const avgMatches = (players.length ? (totalMatches * 2 / players.length) : 0).toFixed(1);
+    const totalRefs = players.reduce((sum, p) => sum + p.refs, 0);
+    const avgRefs = (players.length ? (totalRefs / players.length) : 0).toFixed(1);
+
+    document.getElementById('stat-total-matches').innerText = Math.round(totalMatches);
+    document.getElementById('stat-avg-matches').innerText = avgMatches;
+    document.getElementById('stat-avg-refs').innerText = avgRefs;
+
+    setPodiumPage(0);
+  }
+
+  function setPodiumPage(pageIndex) {
+    currentPodiumPage = pageIndex;
+    [0, 1, 2, 3].forEach(i => {
+      const dot = document.getElementById(`dot-${i}`);
+      dot.className = (i === pageIndex) ? "dot active" : "dot";
+    });
+
+    players.sort((a, b) => b.points - a.points);
+
+    const categories = [
+      {
+        title: "🎾 Most matches played",
+        unit: "matches",
+        sortFn: (a, b) => (b.wins + b.losses) - (a.wins + a.losses),
+        valFn: (p) => p.wins + p.losses,
+        type: "matches"
+      },
+      {
+        title: "🏆 Most victories",
+        unit: "victories",
+        sortFn: (a, b) => b.wins - a.wins,
+        valFn: (p) => p.wins,
+        type: "wins"
+      },
+      {
+        title: "📈 Best progressions",
+        unit: "ranks",
+        sortFn: (a, b) => {
+          const aRank = players.indexOf(a) + 1;
+          const bRank = players.indexOf(b) + 1;
+          return (b.initialRank - bRank) - (a.initialRank - aRank);
+        },
+        valFn: (p) => {
+          const currentRank = players.indexOf(p) + 1;
+          return Math.max(0, p.initialRank - currentRank);
+        },
+        type: "progression"
+      },
+      {
+        title: "📢 Most officiated",
+        unit: "arbitrations",
+        sortFn: (a, b) => b.refs - a.refs,
+        valFn: (p) => p.refs,
+        type: "refs"
+      }
+    ];
+
+    const currentCat = categories[pageIndex];
+    document.getElementById('podium-category-header').innerText = currentCat.title;
+
+    const sorted = [...players].sort(currentCat.sortFn).slice(0, 3);
+    const styles = ["gold", "silver", "bronze"];
+
+    document.getElementById('podium-cards-container').innerHTML = sorted.map((p, idx) => {
+      const currentRank = players.indexOf(p) + 1;
+      const metricVal = currentCat.valFn(p);
+      const style = styles[idx];
+
+      let metaHTML = `<div class="podium-player-meta">Rank: ${currentRank}</div>`;
+      let countHTML = `
+        <div class="podium-count-val val-${style === 'gold' ? 'orange' : 'blue'}">${metricVal}</div>
+        <div class="podium-count-label">${currentCat.unit}</div>
+      `;
+
+      if (currentCat.type === "progression") {
+        metaHTML = `
+          <div><span class="progression-pill">+${metricVal} ranks</span></div>
+          <div class="podium-player-meta">Rank: ${p.initialRank} → ${currentRank}</div>
+        `;
+        countHTML = `
+          <div class="podium-count-val" style="color: #ea580c;">+${metricVal}</div>
+          <div class="podium-count-label">ranks</div>
+        `;
+      }
+
+      return `
+        <div class="podium-card ${style}">
+          <div style="display: flex; align-items: center; gap: 0.85rem;">
+            <div class="medal-icon ${style}">${idx + 1}</div>
+            <div>
+              <div class="podium-player-name">${p.name}</div>
+              ${metaHTML}
+            </div>
+          </div>
+          <div>${countHTML}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
   function renderSetupList() {
     const list = document.getElementById('setup-player-list');
     list.innerHTML = players.map((p, idx) => `
       <div class="player-card">
         <div class="player-info-group">
-          <div class="avatar-initials">${getInitials(p.name)}</div>
+          <div class="avatar-initials">${p.name.substring(0, 2).toUpperCase()}</div>
           <div>
             <div class="player-name">${p.name}</div>
             <div class="player-points">${p.points.toFixed(1)} points</div>
           </div>
         </div>
-        <div class="rank-circle ${idx === 1 ? 'rank-secondary' : ''}">${idx + 1}</div>
+        <div class="rank-circle ${idx === 1 ? 'rank-silver' : ''}">${idx + 1}</div>
       </div>
     `).join('');
   }
@@ -448,25 +536,10 @@
       points: Math.max(1.0, 5.0 - (i * 0.2)),
       wins: 0,
       losses: 0,
-      refs: 0
+      refs: 0,
+      initialRank: i + 1
     }));
     document.getElementById('batch-roster-input').value = '';
-    persist();
-    renderSetupList();
-  }
-
-  function openAddModal() {
-    document.getElementById('input-player-name').value = '';
-    document.getElementById('modal-add').classList.remove('hidden');
-    document.getElementById('input-player-name').focus();
-  }
-  function closeAddModal() { document.getElementById('modal-add').classList.add('hidden'); }
-  function saveNewPlayer() {
-    const name = document.getElementById('input-player-name').value.trim();
-    if (!name) return;
-    const initialPts = Math.max(1.0, 4.0 - players.length);
-    players.push({ id: Date.now(), name, points: initialPts, wins: 0, losses: 0, refs: 0 });
-    closeAddModal();
     persist();
     renderSetupList();
   }
@@ -477,91 +550,6 @@
     renderStandings();
   }
 
-  /* Student Detail Modal: Personal Stats & Potential Opponents */
-  function openStudentDetail(id) {
-    currentViewingPlayer = players.find(p => p.id === id);
-    players.sort((a, b) => b.points - a.points);
-    const pIdx = players.indexOf(currentViewingPlayer);
-
-    document.getElementById('detail-student-name').innerText = currentViewingPlayer.name;
-    document.getElementById('detail-student-metrics').innerText = `Rank #${pIdx + 1} • ${currentViewingPlayer.points.toFixed(1)} pts • ${currentViewingPlayer.wins}W - ${currentViewingPlayer.losses}L • Refereed: ${currentViewingPlayer.refs}`;
-
-    // Calculate potential targets (up to 5 spots above)
-    const minRankIdx = Math.max(0, pIdx - 5);
-    const targets = players.filter((p, idx) => idx >= minRankIdx && idx < pIdx);
-
-    const list = document.getElementById('detail-targets-list');
-    if (targets.length === 0) {
-      list.innerHTML = `<div style="font-size: 0.75rem; color: #94a3b8;">No higher-ranked opponents in range. Rank #1 holds the top!</div>`;
-    } else {
-      list.innerHTML = targets.map(t => {
-        const tIdx = players.indexOf(t);
-        const { winnerPoints } = calculatePoints(pIdx, tIdx);
-        return `
-          <div style="display: flex; justify-content: space-between; padding: 0.35rem 0; border-bottom: 1px solid #f1f5f9; font-size: 0.75rem;">
-            <span>#${tIdx + 1} ${t.name}</span>
-            <span class="score-tag-win">+${winnerPoints.toFixed(1)} pts if win</span>
-          </div>
-        `;
-      }).join('');
-    }
-
-    document.getElementById('modal-student-detail').classList.remove('hidden');
-  }
-
-  function closeStudentDetailModal() {
-    document.getElementById('modal-student-detail').classList.add('hidden');
-  }
-
-  function promptManualEdit() {
-    if (config.pinEnabled) {
-      const pin = prompt("Enter Teacher PIN to edit points:");
-      if (pin !== config.pinCode) return alert("Incorrect PIN.");
-    }
-    const newPts = prompt(`Enter new points for ${currentViewingPlayer.name}:`, currentViewingPlayer.points);
-    if (newPts !== null && !isNaN(parseFloat(newPts))) {
-      currentViewingPlayer.points = parseFloat(newPts);
-      persist();
-      renderStandings();
-      closeStudentDetailModal();
-    }
-  }
-
-  /* Podiums & End-of-Tournament Stats */
-  function renderPodiums() {
-    players.sort((a, b) => b.points - a.points);
-    const p1 = players[0] || { name: "-", points: 0 };
-    const p2 = players[1] || { name: "-", points: 0 };
-    const p3 = players[2] || { name: "-", points: 0 };
-
-    document.getElementById('podium-graphics').innerHTML = `
-      <div class="podium-step">
-        <div class="podium-name">${p2.name}</div>
-        <div class="podium-pts">${p2.points.toFixed(1)} pts</div>
-        <div class="podium-box podium-2">2</div>
-      </div>
-      <div class="podium-step">
-        <div class="podium-name">${p1.name}</div>
-        <div class="podium-pts">${p1.points.toFixed(1)} pts</div>
-        <div class="podium-box podium-1">1</div>
-      </div>
-      <div class="podium-step">
-        <div class="podium-name">${p3.name}</div>
-        <div class="podium-pts">${p3.points.toFixed(1)} pts</div>
-        <div class="podium-box podium-3">3</div>
-      </div>
-    `;
-
-    const bestRef = [...players].sort((a, b) => b.refs - a.refs)[0] || { name: "-", refs: 0 };
-    const mostWins = [...players].sort((a, b) => b.wins - a.wins)[0] || { name: "-", wins: 0 };
-
-    document.getElementById('honors-card').innerHTML = `
-      <div style="margin-bottom: 0.5rem; font-size: 0.8rem;"><strong>🥇 Most Matches Won:</strong> ${mostWins.name} (${mostWins.wins} wins)</div>
-      <div style="font-size: 0.8rem;"><strong>📢 Top Student Referee:</strong> ${bestRef.name} (${bestRef.refs} arbitrations)</div>
-    `;
-  }
-
-  /* Match Logging Sequence */
   function initiateMatchFlow(withRef) {
     hasReferee = withRef;
     selectedRef = null;
@@ -583,11 +571,8 @@
     list.innerHTML = players.map((p, idx) => `
       <div class="player-card" onclick="chooseReferee(${p.id})">
         <div class="player-info-group">
-          <div class="rank-circle ${idx === 1 ? 'rank-secondary' : ''}">${idx + 1}</div>
-          <div>
-            <div class="player-name">${p.name}</div>
-            <div class="player-points">${p.points.toFixed(1)} points</div>
-          </div>
+          <div class="rank-circle ${idx === 1 ? 'rank-silver' : ''}">${idx + 1}</div>
+          <div class="player-name">${p.name} (${p.points.toFixed(1)} pts)</div>
         </div>
       </div>
     `).join('');
@@ -609,11 +594,8 @@
       return `
         <div class="player-card" onclick="chooseWinner(${p.id})">
           <div class="player-info-group">
-            <div class="rank-circle ${idx === 1 ? 'rank-secondary' : ''}">${idx + 1}</div>
-            <div>
-              <div class="player-name">${p.name}</div>
-              <div class="player-points">${p.points.toFixed(1)} points</div>
-            </div>
+            <div class="rank-circle ${idx === 1 ? 'rank-silver' : ''}">${idx + 1}</div>
+            <div class="player-name">${p.name} (${p.points.toFixed(1)} pts)</div>
           </div>
         </div>
       `;
@@ -629,46 +611,25 @@
 
   function renderLoserList() {
     const list = document.getElementById('loser-pick-list');
-    const winnerIdx = players.indexOf(selectedWinner);
-    const minRankIdx = Math.max(0, winnerIdx - 5);
-
-    const eligible = players.filter((p, idx) => {
-      if (p.id === selectedWinner.id) return false;
-      if (selectedRef && p.id === selectedRef.id) return false;
-      return true; // Show all, but validate gap
-    });
-
+    const eligible = players.filter(p => p.id !== selectedWinner.id && (!selectedRef || p.id !== selectedRef.id));
     list.innerHTML = eligible.map((p) => {
       const idx = players.indexOf(p);
-      const isOverGap = idx < minRankIdx;
       return `
-        <div class="player-card" onclick="chooseLoser(${p.id}, ${isOverGap})">
+        <div class="player-card" onclick="chooseLoser(${p.id})">
           <div class="player-info-group">
-            <div class="rank-circle ${idx === 1 ? 'rank-secondary' : ''}">${idx + 1}</div>
-            <div>
-              <div class="player-name">${p.name}</div>
-              <div class="player-points">${p.points.toFixed(1)} points</div>
-            </div>
+            <div class="rank-circle ${idx === 1 ? 'rank-silver' : ''}">${idx + 1}</div>
+            <div class="player-name">${p.name} (${p.points.toFixed(1)} pts)</div>
           </div>
-          ${isOverGap ? '<span class="badge-pill" style="color: #dc2626; background: #fee2e2;">Gap > 5 (PIN)</span>' : ''}
         </div>
       `;
     }).join('');
   }
 
-  function chooseLoser(id, isOverGap) {
-    if (isOverGap) {
-      if (!confirm("This match exceeds the 5-rank difference rule. Override with teacher permission?")) return;
-      if (config.pinEnabled) {
-        const pin = prompt("Enter Teacher PIN to validate gap > 5:");
-        if (pin !== config.pinCode) return alert("Incorrect PIN. Match aborted.");
-      }
-    }
+  function chooseLoser(id) {
     selectedLoser = players.find(p => p.id === id);
     openConfirmModal();
   }
 
-  /* Exact ATP Scoring Engine */
   function calculatePoints(wIdx, lIdx) {
     const rankDiff = lIdx - wIdx;
     let winnerPoints = 3.0;
@@ -716,12 +677,9 @@
     }
 
     matchHistory.push({
-      winnerId: selectedWinner.id,
-      loserId: selectedLoser.id,
+      winnerId: selectedWinner.id, loserId: selectedLoser.id,
       refId: selectedRef ? selectedRef.id : null,
-      winPts: winnerPoints,
-      losePts: loserPoints,
-      refPts: refEarned
+      winPts: winnerPoints, losePts: loserPoints, refPts: refEarned
     });
 
     closeConfirmModal();
@@ -730,35 +688,15 @@
     renderStandings();
   }
 
-  function undoLastMatch() {
-    if (matchHistory.length === 0) return alert("No recent matches to undo.");
-    if (config.pinEnabled) {
-      const pin = prompt("Enter Teacher PIN to undo match:");
-      if (pin !== config.pinCode) return alert("Incorrect PIN.");
-    }
-    const last = matchHistory.pop();
-    const winner = players.find(p => p.id === last.winnerId);
-    const loser = players.find(p => p.id === last.loserId);
-    const ref = last.refId ? players.find(p => p.id === last.refId) : null;
-
-    if (winner) { winner.points = Math.max(0, winner.points - last.winPts); winner.wins--; }
-    if (loser) { loser.points = Math.max(0, loser.points - last.losePts); loser.losses--; }
-    if (ref) { ref.points = Math.max(0, ref.points - last.refPts); ref.refs--; }
-
-    persist();
-    renderStandings();
-    alert("Last match reversed.");
-  }
-
   function exportStandingsCSV() {
-    let csv = "Rank,Name,Points,Wins,Losses,Refereed\n";
+    let csv = "Rank,Name,Points,Wins,Losses,Refereed,InitialRank\n";
     players.sort((a, b) => b.points - a.points).forEach((p, i) => {
-      csv += `${i + 1},"${p.name}",${p.points.toFixed(1)},${p.wins},${p.losses},${p.refs}\n`;
+      csv += `${i + 1},"${p.name}",${p.points.toFixed(1)},${p.wins},${p.losses},${p.refs},${p.initialRank}\n`;
     });
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = `PE_Tournament_Standings_${new Date().toISOString().slice(0, 10)}.csv`;
+    link.download = `${tournamentName}_Standings_${new Date().toISOString().slice(0, 10)}.csv`;
     link.click();
   }
 
