@@ -10,77 +10,83 @@
 
     .app-shell { display: flex; flex-direction: column; height: 100vh; max-width: 768px; margin: 0 auto; width: 100%; position: relative; background: #ffffff; }
 
-    /* Top Bars */
-    .top-bar { height: 56px; display: flex; align-items: center; justify-content: center; position: relative; font-weight: 600; font-size: 0.95rem; color: #0f172a; border-bottom: 1px solid #f1f5f9; padding: 0 1rem; flex-shrink: 0; }
+    /* Top Navigation Bars */
+    .top-bar { height: 56px; display: flex; align-items: center; justify-content: center; position: relative; font-weight: 700; font-size: 0.95rem; color: #0f172a; border-bottom: 1px solid #f1f5f9; padding: 0 1rem; flex-shrink: 0; }
     .top-bar.bar-referee { background-color: #f59e0b; color: #ffffff; border-bottom: none; }
     .top-bar.bar-winner { background-color: #2e7d32; color: #ffffff; border-bottom: none; }
     .top-bar.bar-loser { background-color: #c62828; color: #ffffff; border-bottom: none; }
     
     .nav-btn-left { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 1.25rem; cursor: pointer; color: inherit; display: flex; align-items: center; }
-    .nav-icons-right { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); display: flex; gap: 1rem; font-size: 1.15rem; cursor: pointer; color: #475569; }
+    .nav-icons-right { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); display: flex; gap: 0.85rem; font-size: 1.15rem; cursor: pointer; color: #475569; }
 
     /* Content Area */
-    .content-area { flex: 1; overflow-y: auto; padding: 1rem; padding-bottom: 5.5rem; }
+    .content-area { flex: 1; overflow-y: auto; padding: 1rem; padding-bottom: 6rem; }
 
-    /* Home View Elements */
-    .home-hero { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 70vh; text-align: center; }
-    .home-title { font-size: 1.75rem; font-weight: 800; color: #1e3a8a; margin-bottom: 0.25rem; }
-    .home-subtitle { font-size: 0.85rem; color: #64748b; margin-bottom: 2.5rem; }
-    .home-nav-box { width: 100%; max-width: 380px; display: flex; flex-direction: column; gap: 0.75rem; }
-    .btn-home-primary { background: #255d8f; color: #fff; border: none; border-radius: 8px; padding: 0.85rem; font-weight: 700; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
-    .btn-home-outline { background: #fff; color: #255d8f; border: 1.5px solid #255d8f; border-radius: 8px; padding: 0.85rem; font-weight: 700; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+    /* Home View */
+    .home-hero { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 75vh; text-align: center; }
+    .home-title { font-size: 1.85rem; font-weight: 900; color: #1e3a8a; margin-bottom: 0.25rem; letter-spacing: -0.02em; }
+    .home-subtitle { font-size: 0.85rem; color: #64748b; margin-bottom: 2rem; }
+    .home-nav-box { width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 0.75rem; }
+    .btn-home-primary { background: #255d8f; color: #fff; border: none; border-radius: 10px; padding: 0.85rem; font-weight: 700; font-size: 0.9rem; cursor: pointer; }
+    .btn-home-outline { background: #fff; color: #255d8f; border: 1.5px solid #255d8f; border-radius: 10px; padding: 0.85rem; font-weight: 700; font-size: 0.9rem; cursor: pointer; }
 
-    /* Information / Rules UI Cards */
+    /* Info Cards & Scoring Matrix */
     .info-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; }
     .info-card-header { display: flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 0.9rem; color: #0f172a; margin-bottom: 0.5rem; }
     .info-card p, .info-card li { font-size: 0.8rem; color: #475569; line-height: 1.4; }
     .info-card ul { padding-left: 1.25rem; margin-top: 0.35rem; }
-    .info-callout { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 0.5rem 0.75rem; font-size: 0.75rem; color: #166534; margin-top: 0.5rem; }
-
-    /* Scoring Table */
     .score-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.8rem; }
     .score-table tr { border-bottom: 1px solid #f1f5f9; }
-    .score-table td { padding: 0.5rem 0.25rem; }
+    .score-table td { padding: 0.45rem 0.25rem; }
     .score-tag-win { display: inline-block; padding: 2px 8px; border-radius: 12px; font-weight: 700; font-size: 0.75rem; background: #dcfce7; color: #15803d; }
     .score-tag-defend { display: inline-block; padding: 2px 8px; border-radius: 12px; font-weight: 700; font-size: 0.75rem; background: #ffedd5; color: #c2410c; }
     .defeat-alert { background: #fef2f2; border: 1px solid #fee2e2; color: #b91c1c; padding: 0.5rem; border-radius: 6px; font-size: 0.75rem; margin-top: 0.75rem; }
 
-    /* Player Cards */
-    .player-card { background: #f8fafc; border-radius: 10px; padding: 0.75rem 1rem; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: space-between; cursor: pointer; border: 1px solid #e2e8f0; }
-    .player-card:active { background: #e2e8f0; }
+    /* Player Cards & Badges */
+    .player-card { background: #f8fafc; border-radius: 12px; padding: 0.75rem 1rem; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: space-between; cursor: pointer; border: 1px solid #e2e8f0; transition: background 0.1s; }
+    .player-card:active { background: #f1f5f9; }
     .player-info-group { display: flex; align-items: center; gap: 0.75rem; }
-    .rank-circle { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #ffffff; background-color: #f59e0b; flex-shrink: 0; }
+    .rank-circle { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; color: #ffffff; background-color: #f59e0b; flex-shrink: 0; }
     .rank-circle.rank-secondary { background-color: #94a3b8; }
     .avatar-initials { width: 34px; height: 34px; border-radius: 50%; background: #dbeafe; color: #1e40af; font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
     .player-name { font-size: 0.9rem; font-weight: 600; color: #1e293b; }
-    .player-points { font-size: 0.75rem; color: #64748b; }
+    .player-points { font-size: 0.75rem; color: #64748b; margin-top: 1px; }
 
-    /* Settings Styles */
+    /* Podiums View */
+    .podium-container { display: flex; justify-content: center; align-items: flex-end; gap: 0.5rem; margin: 1.5rem 0 2rem; height: 180px; }
+    .podium-step { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; width: 30%; }
+    .podium-box { width: 100%; border-radius: 8px 8px 0 0; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; color: #fff; }
+    .podium-1 { height: 120px; background: #f59e0b; }
+    .podium-2 { height: 90px; background: #94a3b8; }
+    .podium-3 { height: 65px; background: #b45309; }
+    .podium-name { font-size: 0.75rem; font-weight: 700; margin-bottom: 0.35rem; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 90px; }
+    .podium-pts { font-size: 0.65rem; color: #64748b; margin-bottom: 0.25rem; }
+
+    /* Settings & Forms */
     .setting-section-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #64748b; margin: 1.25rem 0 0.5rem 0.25rem; }
     .setting-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1rem; margin-bottom: 0.75rem; }
     .setting-row { display: flex; justify-content: space-between; align-items: center; }
-    .setting-input { width: 100%; border: 1px solid #cbd5e1; border-radius: 6px; padding: 0.5rem; font-size: 0.85rem; margin-top: 0.5rem; outline: none; }
+    .setting-input { width: 100%; border: 1px solid #cbd5e1; border-radius: 6px; padding: 0.55rem; font-size: 0.85rem; margin-top: 0.5rem; outline: none; }
+    .setting-textarea { width: 100%; border: 1px solid #cbd5e1; border-radius: 6px; padding: 0.55rem; font-size: 0.8rem; font-family: monospace; outline: none; }
 
-    /* Bottom Action Bar */
+    /* Bottom Action Bars */
     .bottom-actions { position: absolute; bottom: 0; left: 0; right: 0; background: #ffffff; border-top: 1px solid #f1f5f9; padding: 0.75rem 1rem; display: flex; gap: 0.75rem; justify-content: space-between; align-items: center; }
     .btn-action-primary { flex: 1; background-color: #255d8f; color: #ffffff; border: none; border-radius: 24px; padding: 0.75rem; font-size: 0.8rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.35rem; }
     .btn-action-outline { flex: 1; background-color: #ffffff; color: #255d8f; border: 1.5px solid #255d8f; border-radius: 24px; padding: 0.75rem; font-size: 0.8rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.35rem; }
 
-    /* Floating Add Player Button */
+    /* Floating Add Button */
     .fab-add { position: absolute; bottom: 4.5rem; right: 1.25rem; width: 44px; height: 44px; border-radius: 12px; background: #dbeafe; color: #1e40af; border: none; font-size: 1.25rem; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.06); }
-    .btn-create-tourney { background: transparent; border: none; color: #334155; font-size: 0.85rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 0.35rem; margin-left: auto; }
 
     /* Modals */
     .modal-backdrop { position: fixed; inset: 0; background-color: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center; z-index: 50; padding: 1rem; }
-    .modal-card { background: #ffffff; border-radius: 18px; width: 100%; max-width: 320px; padding: 1.25rem; text-align: center; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+    .modal-card { background: #ffffff; border-radius: 18px; width: 100%; max-width: 340px; padding: 1.25rem; text-align: center; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); max-height: 90vh; overflow-y: auto; }
     .modal-title { font-size: 1.05rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem; }
-    .modal-match-title { font-size: 0.85rem; font-weight: 700; color: #334155; margin-bottom: 1rem; }
-    .modal-input { width: 100%; padding: 0.65rem 0.75rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem; margin-bottom: 1.25rem; outline: none; }
-    .modal-btn-row { display: flex; justify-content: space-between; border-top: 1px solid #f1f5f9; padding-top: 0.75rem; margin-top: 0.5rem; }
+    .modal-input { width: 100%; padding: 0.65rem 0.75rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem; margin-bottom: 1rem; outline: none; }
+    .modal-btn-row { display: flex; justify-content: space-between; border-top: 1px solid #f1f5f9; padding-top: 0.75rem; margin-top: 0.75rem; }
     .modal-btn-row button { background: none; border: none; font-size: 0.85rem; font-weight: 600; cursor: pointer; padding: 0.25rem 0.5rem; color: #2563eb; }
 
-    /* Confirmation Grid */
-    .confirm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1.25rem; }
+    /* Confirmation Modal Grid */
+    .confirm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1rem; }
     .confirm-col { padding: 0.5rem; border-radius: 8px; }
     .confirm-col.winner { background: #eff6ff; }
     .confirm-col.loser { background: #fef2f2; }
@@ -97,13 +103,15 @@
     .banner-ref { background-color: #fffbeb; color: #92400e; border: 1px solid #fef3c7; }
     .banner-winner { background-color: #f0fdf4; color: #166534; border: 1px solid #dcfce7; }
 
+    .badge-pill { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 700; background: #e2e8f0; color: #475569; }
+
     .hidden { display: none !important; }
   </style>
 </head>
 <body>
 <div class="app-shell">
 
-  <!-- SCREEN 1: MAIN HOME MENU -->
+  <!-- 1. HOME SCREEN -->
   <section id="screen-home">
     <div class="top-bar">
       ATP PE
@@ -114,15 +122,15 @@
     </div>
     <div class="content-area home-hero">
       <h1 class="home-title">ATP PE</h1>
-      <p class="home-subtitle">PE Tournament Management App</p>
+      <p class="home-subtitle">PE Ladder Tournament</p>
       <div class="home-nav-box">
         <button class="btn-home-primary" onclick="openTournaments()">👤 TOURNAMENT</button>
-        <button class="btn-home-outline" onclick="openGroups()">👥 CLASS GROUPS</button>
+        <button class="btn-home-outline" onclick="openGroups()">👥 CLASS ROSTERS</button>
       </div>
     </div>
   </section>
 
-  <!-- SCREEN 2: INFORMATION / RULES (From Screenshot) -->
+  <!-- 2. INFORMATION / RULES -->
   <section id="screen-info" class="hidden">
     <div class="top-bar">
       <button class="nav-btn-left" onclick="showScreen('screen-home')">‹</button>
@@ -131,62 +139,50 @@
     <div class="content-area">
       <div class="info-card">
         <div class="info-card-header">🏆 ATP PE Tournament</div>
-        <p>Organize ladder tournaments where players challenge higher-ranked opponents to gain points and improve their rank.</p>
+        <p>Organize dynamic ladder tournaments where players challenge higher-ranked opponents to win points and climb the standings.</p>
       </div>
-
       <div class="info-card">
         <div class="info-card-header">🤺 Challenge Rules</div>
         <ul>
           <li>Players can only challenge opponents ranked above them.</li>
-          <li>Maximum rank gap allowed is <strong>5 ranks</strong>.</li>
+          <li>Maximum allowed rank gap is <strong>5 ranks</strong>.</li>
         </ul>
-        <div class="info-callout">💡 Example: If ranked 8th, you can challenge players ranked 7, 6, 5, 4, or 3.</div>
       </div>
-
       <div class="info-card">
         <div class="info-card-header">🔢 Points System</div>
         <p>Points earned depend on the rank gap between the players:</p>
         <table class="score-table">
           <tr><td>Opponent +5 ranks</td><td align="right"><span class="score-tag-win">5.5 pts</span></td></tr>
-          <tr><td>Opponent +4 ranks</td><td align="right"><span class="score-tag-win">5 pts</span></td></tr>
+          <tr><td>Opponent +4 ranks</td><td align="right"><span class="score-tag-win">5.0 pts</span></td></tr>
           <tr><td>Opponent +3 ranks</td><td align="right"><span class="score-tag-win">4.5 pts</span></td></tr>
-          <tr><td>Opponent +2 ranks</td><td align="right"><span class="score-tag-win">4 pts</span></td></tr>
+          <tr><td>Opponent +2 ranks</td><td align="right"><span class="score-tag-win">4.0 pts</span></td></tr>
           <tr><td>Opponent +1 rank</td><td align="right"><span class="score-tag-win">3.5 pts</span></td></tr>
-          <tr><td>Opponent -1 rank</td><td align="right"><span class="score-tag-defend">3 pts</span></td></tr>
+          <tr><td>Opponent -1 rank</td><td align="right"><span class="score-tag-defend">3.0 pts</span></td></tr>
           <tr><td>Opponent -2 ranks</td><td align="right"><span class="score-tag-defend">2.5 pts</span></td></tr>
-          <tr><td>Opponent -3 ranks</td><td align="right"><span class="score-tag-defend">2 pts</span></td></tr>
+          <tr><td>Opponent -3 ranks</td><td align="right"><span class="score-tag-defend">2.0 pts</span></td></tr>
           <tr><td>Opponent -4 ranks</td><td align="right"><span class="score-tag-defend">1.5 pts</span></td></tr>
-          <tr><td>Opponent -5 ranks</td><td align="right"><span class="score-tag-defend">1 pt</span></td></tr>
+          <tr><td>Opponent -5 ranks</td><td align="right"><span class="score-tag-defend">1.0 pt</span></td></tr>
         </table>
         <div class="defeat-alert">ⓘ In case of defeat, the losing player always receives <strong>0.5 points</strong>.</div>
-      </div>
-
-      <div class="info-card">
-        <div class="info-card-header">📊 Ranking</div>
-        <ul>
-          <li>Standings update automatically after match confirmation.</li>
-          <li>Players are ranked in descending order of total points.</li>
-          <li>Rank #1 corresponds to the student with the most points.</li>
-        </ul>
       </div>
     </div>
   </section>
 
-  <!-- SCREEN 3: SETTINGS / PARAMÈTRES (From Screenshot) -->
+  <!-- 3. SETTINGS -->
   <section id="screen-settings" class="hidden">
     <div class="top-bar">
       <button class="nav-btn-left" onclick="showScreen('screen-home')">‹</button>
       Settings
     </div>
     <div class="content-area">
-      <div class="setting-section-title">Security</div>
+      <div class="setting-section-title">Security & Teacher Controls</div>
       <div class="setting-card">
         <div class="setting-row">
           <span style="font-weight: 600; font-size: 0.85rem;">Confirmation Code (PIN)</span>
           <input type="checkbox" id="setting-pin-toggle" onchange="togglePinSetting()" />
         </div>
-        <p style="font-size: 0.75rem; color: #64748b; margin-top: 0.35rem;">Protects manual score overrides and ranks > 5.</p>
-        <input type="password" id="setting-pin-code" class="setting-input hidden" placeholder="Enter 4-digit teacher PIN" maxlength="6" value="1234" />
+        <p style="font-size: 0.75rem; color: #64748b; margin-top: 0.35rem;">Protects manual score adjustments, gap overrides, and stats export.</p>
+        <input type="password" id="setting-pin-code" class="setting-input hidden" placeholder="4-digit PIN" maxlength="6" value="1234" />
       </div>
 
       <div class="setting-section-title">Tournament Rules</div>
@@ -194,32 +190,47 @@
         <label style="font-size: 0.85rem; font-weight: 600;">Referee / Umpire Points</label>
         <p style="font-size: 0.75rem; color: #64748b; margin-bottom: 0.5rem;">Points awarded to a student for officiating a match.</p>
         <input type="number" step="0.1" id="setting-ref-points" class="setting-input" value="0.5" />
-        <button class="btn-action-primary" style="margin-top: 0.75rem; width: 100%;" onclick="saveSettings()">Save Changes</button>
+        <button class="btn-action-primary" style="margin-top: 0.75rem; width: 100%;" onclick="saveSettings()">Save Settings</button>
+      </div>
+
+      <div class="setting-section-title">Data Backup</div>
+      <div class="setting-card">
+        <button class="btn-home-outline" style="width: 100%;" onclick="exportStandingsCSV()">📥 Export Gradebook to CSV</button>
       </div>
     </div>
   </section>
 
-  <!-- SCREEN 4: CLASS ROSTER SETUP -->
+  <!-- 4. ROSTER SETUP (Supports Excel / CSV Batch Import) -->
   <section id="screen-setup" class="hidden">
     <div class="top-bar">
       <button class="nav-btn-left" onclick="showScreen('screen-home')">‹</button>
-      Rank Players
+      Class Roster
     </div>
     <div class="content-area">
+      <div class="setting-card" style="margin-bottom: 1rem;">
+        <label style="font-size: 0.8rem; font-weight: 700; color: #1e3a8a;">📋 Quick Import from Excel / CSV</label>
+        <p style="font-size: 0.75rem; color: #64748b; margin-bottom: 0.5rem;">Paste a column of student names below:</p>
+        <textarea id="batch-roster-input" class="setting-textarea" rows="4" placeholder="Lucas Miller&#10;Emma Wilson&#10;Noah Davis"></textarea>
+        <button class="btn-action-primary" style="margin-top: 0.5rem; width: 100%; padding: 0.6rem;" onclick="importBatchRoster()">Import Class</button>
+      </div>
       <div id="setup-player-list"></div>
     </div>
     <button class="fab-add" onclick="openAddModal()">+👤</button>
     <div class="bottom-actions">
-      <button class="btn-create-tourney" onclick="startTournament()">✔ Create Tournament</button>
+      <button class="btn-action-primary" onclick="startTournament()">✔ Launch Tournament</button>
     </div>
   </section>
 
-  <!-- SCREEN 5: TOURNAMENT STANDINGS -->
+  <!-- 5. TOURNAMENT STANDINGS & LIVE DASHBOARD -->
   <section id="screen-standings" class="hidden">
     <div class="top-bar" style="flex-direction: column; height: 60px;">
       <button class="nav-btn-left" onclick="showScreen('screen-home')">‹</button>
       <div style="font-size: 0.9rem; font-weight: 700;">Tournament 1</div>
-      <div style="font-size: 0.7rem; color: #64748b;" id="player-count-label">3 players</div>
+      <div style="font-size: 0.7rem; color: #64748b;" id="player-count-label">0 players</div>
+      <div class="nav-icons-right">
+        <span title="Podiums & Stats" onclick="showScreen('screen-podiums'); renderPodiums();">🏆</span>
+        <span title="Undo Last Match" onclick="undoLastMatch()">↩️</span>
+      </div>
     </div>
     <div class="content-area">
       <div id="tournament-player-list"></div>
@@ -230,10 +241,26 @@
     </div>
   </section>
 
-  <!-- SCREEN 6: SELECT REFEREE -->
+  <!-- 6. PODIUMS & STATISTICS SCREEN -->
+  <section id="screen-podiums" class="hidden">
+    <div class="top-bar">
+      <button class="nav-btn-left" onclick="showScreen('screen-standings')">‹</button>
+      Tournament Podiums
+    </div>
+    <div class="content-area">
+      <div class="podium-container" id="podium-graphics"></div>
+
+      <div class="setting-section-title">Special Honors</div>
+      <div class="info-card" id="honors-card"></div>
+
+      <button class="btn-home-outline" style="width: 100%; margin-top: 1rem;" onclick="exportStandingsCSV()">📥 Download Full Class CSV</button>
+    </div>
+  </section>
+
+  <!-- 7. MATCH FLOW: REFEREE SELECTION -->
   <section id="screen-referee" class="hidden">
     <div class="top-bar bar-referee">
-      <button class="nav-btn-left" onclick="cancelMatchFlow()">‹</button>
+      <button class="nav-btn-left" onclick="showScreen('screen-standings')">‹</button>
       Select Referee
     </div>
     <div class="content-area">
@@ -241,10 +268,10 @@
     </div>
   </section>
 
-  <!-- SCREEN 7: SELECT WINNER -->
+  <!-- 8. MATCH FLOW: WINNER SELECTION -->
   <section id="screen-winner" class="hidden">
     <div class="top-bar bar-winner">
-      <button class="nav-btn-left" onclick="cancelMatchFlow()">‹</button>
+      <button class="nav-btn-left" onclick="showScreen('screen-standings')">‹</button>
       Select Winner
     </div>
     <div class="content-area">
@@ -255,10 +282,10 @@
     </div>
   </section>
 
-  <!-- SCREEN 8: SELECT LOSER -->
+  <!-- 9. MATCH FLOW: LOSER SELECTION -->
   <section id="screen-loser" class="hidden">
     <div class="top-bar bar-loser">
-      <button class="nav-btn-left" onclick="goToStep('winner')">‹</button>
+      <button class="nav-btn-left" onclick="showScreen('screen-winner')">‹</button>
       Select Loser
     </div>
     <div class="content-area">
@@ -269,7 +296,7 @@
     </div>
   </section>
 
-  <!-- MODAL: ADD PLAYER -->
+  <!-- MODAL: ADD PLAYER INDIVIDUALLY -->
   <div id="modal-add" class="modal-backdrop hidden">
     <div class="modal-card">
       <div class="modal-title">Add a Player</div>
@@ -281,11 +308,27 @@
     </div>
   </div>
 
+  <!-- MODAL: STUDENT DETAILS & POTENTIAL OPPONENTS (From Screenshot Description) -->
+  <div id="modal-student-detail" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-title" id="detail-student-name">Student Stats</div>
+      <div style="font-size: 0.8rem; color: #64748b; margin-bottom: 1rem;" id="detail-student-metrics">3.0 pts • 2W - 1L • 1 Ref</div>
+      
+      <div style="text-align: left; margin-bottom: 0.5rem; font-size: 0.8rem; font-weight: 700; color: #1e3a8a;">Eligible Challenge Targets:</div>
+      <div id="detail-targets-list" style="text-align: left; max-height: 200px; overflow-y: auto;"></div>
+
+      <div class="modal-btn-row">
+        <button onclick="closeStudentDetailModal()">Close</button>
+        <button style="color: #dc2626;" onclick="promptManualEdit()">Edit Points</button>
+      </div>
+    </div>
+  </div>
+
   <!-- MODAL: CONFIRM MATCH RESULT -->
   <div id="modal-confirm" class="modal-backdrop hidden">
     <div class="modal-card">
       <div class="modal-title">Confirm Result</div>
-      <div class="modal-match-title" id="confirm-match-subtitle">Player A vs Player B</div>
+      <div style="font-size: 0.85rem; font-weight: 700; color: #334155; margin-bottom: 1rem;" id="confirm-match-subtitle">Player A vs Player B</div>
 
       <div class="confirm-grid">
         <div class="confirm-col winner">
@@ -324,14 +367,18 @@
     pinCode: "1234"
   };
 
+  let matchHistory = JSON.parse(localStorage.getItem('pe_atp_history')) || [];
+
   let hasReferee = false;
   let selectedRef = null;
   let selectedWinner = null;
   let selectedLoser = null;
+  let currentViewingPlayer = null;
 
   function persist() {
     localStorage.setItem('pe_atp_players', JSON.stringify(players));
     localStorage.setItem('pe_atp_config', JSON.stringify(config));
+    localStorage.setItem('pe_atp_history', JSON.stringify(matchHistory));
   }
 
   function getInitials(name) {
@@ -339,7 +386,7 @@
   }
 
   function showScreen(screenId) {
-    ['screen-home', 'screen-info', 'screen-settings', 'screen-setup', 'screen-standings', 'screen-referee', 'screen-winner', 'screen-loser'].forEach(id => {
+    ['screen-home', 'screen-info', 'screen-settings', 'screen-setup', 'screen-standings', 'screen-podiums', 'screen-referee', 'screen-winner', 'screen-loser'].forEach(id => {
       document.getElementById(id).classList.add('hidden');
     });
     document.getElementById(screenId).classList.remove('hidden');
@@ -361,18 +408,20 @@
     document.getElementById('player-count-label').innerText = `${players.length} players`;
     const list = document.getElementById('tournament-player-list');
     list.innerHTML = players.map((p, idx) => `
-      <div class="player-card">
+      <div class="player-card" onclick="openStudentDetail(${p.id})">
         <div class="player-info-group">
           <div class="rank-circle ${idx === 1 ? 'rank-secondary' : ''}">${idx + 1}</div>
           <div>
             <div class="player-name">${p.name} - ${p.points.toFixed(1)} pts</div>
+            <div class="player-points">${p.wins}W - ${p.losses}L • Ref: ${p.refs}</div>
           </div>
         </div>
+        <span style="color: #94a3b8; font-size: 0.8rem;">›</span>
       </div>
     `).join('');
   }
 
-  /* Setup */
+  /* Roster Setup & Batch Import */
   function renderSetupList() {
     const list = document.getElementById('setup-player-list');
     list.innerHTML = players.map((p, idx) => `
@@ -389,14 +438,29 @@
     `).join('');
   }
 
+  function importBatchRoster() {
+    const text = document.getElementById('batch-roster-input').value.trim();
+    if (!text) return alert("Please paste student names first.");
+    const names = text.split('\n').map(n => n.trim()).filter(n => n.length > 0);
+    players = names.map((name, i) => ({
+      id: Date.now() + i,
+      name: name,
+      points: Math.max(1.0, 5.0 - (i * 0.2)),
+      wins: 0,
+      losses: 0,
+      refs: 0
+    }));
+    document.getElementById('batch-roster-input').value = '';
+    persist();
+    renderSetupList();
+  }
+
   function openAddModal() {
     document.getElementById('input-player-name').value = '';
     document.getElementById('modal-add').classList.remove('hidden');
     document.getElementById('input-player-name').focus();
   }
-  function closeAddModal() {
-    document.getElementById('modal-add').classList.add('hidden');
-  }
+  function closeAddModal() { document.getElementById('modal-add').classList.add('hidden'); }
   function saveNewPlayer() {
     const name = document.getElementById('input-player-name').value.trim();
     if (!name) return;
@@ -406,9 +470,95 @@
     persist();
     renderSetupList();
   }
+
   function startTournament() {
+    if (players.length < 2) return alert("Add at least 2 players to start.");
     showScreen('screen-standings');
     renderStandings();
+  }
+
+  /* Student Detail Modal: Personal Stats & Potential Opponents */
+  function openStudentDetail(id) {
+    currentViewingPlayer = players.find(p => p.id === id);
+    players.sort((a, b) => b.points - a.points);
+    const pIdx = players.indexOf(currentViewingPlayer);
+
+    document.getElementById('detail-student-name').innerText = currentViewingPlayer.name;
+    document.getElementById('detail-student-metrics').innerText = `Rank #${pIdx + 1} • ${currentViewingPlayer.points.toFixed(1)} pts • ${currentViewingPlayer.wins}W - ${currentViewingPlayer.losses}L • Refereed: ${currentViewingPlayer.refs}`;
+
+    // Calculate potential targets (up to 5 spots above)
+    const minRankIdx = Math.max(0, pIdx - 5);
+    const targets = players.filter((p, idx) => idx >= minRankIdx && idx < pIdx);
+
+    const list = document.getElementById('detail-targets-list');
+    if (targets.length === 0) {
+      list.innerHTML = `<div style="font-size: 0.75rem; color: #94a3b8;">No higher-ranked opponents in range. Rank #1 holds the top!</div>`;
+    } else {
+      list.innerHTML = targets.map(t => {
+        const tIdx = players.indexOf(t);
+        const { winnerPoints } = calculatePoints(pIdx, tIdx);
+        return `
+          <div style="display: flex; justify-content: space-between; padding: 0.35rem 0; border-bottom: 1px solid #f1f5f9; font-size: 0.75rem;">
+            <span>#${tIdx + 1} ${t.name}</span>
+            <span class="score-tag-win">+${winnerPoints.toFixed(1)} pts if win</span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    document.getElementById('modal-student-detail').classList.remove('hidden');
+  }
+
+  function closeStudentDetailModal() {
+    document.getElementById('modal-student-detail').classList.add('hidden');
+  }
+
+  function promptManualEdit() {
+    if (config.pinEnabled) {
+      const pin = prompt("Enter Teacher PIN to edit points:");
+      if (pin !== config.pinCode) return alert("Incorrect PIN.");
+    }
+    const newPts = prompt(`Enter new points for ${currentViewingPlayer.name}:`, currentViewingPlayer.points);
+    if (newPts !== null && !isNaN(parseFloat(newPts))) {
+      currentViewingPlayer.points = parseFloat(newPts);
+      persist();
+      renderStandings();
+      closeStudentDetailModal();
+    }
+  }
+
+  /* Podiums & End-of-Tournament Stats */
+  function renderPodiums() {
+    players.sort((a, b) => b.points - a.points);
+    const p1 = players[0] || { name: "-", points: 0 };
+    const p2 = players[1] || { name: "-", points: 0 };
+    const p3 = players[2] || { name: "-", points: 0 };
+
+    document.getElementById('podium-graphics').innerHTML = `
+      <div class="podium-step">
+        <div class="podium-name">${p2.name}</div>
+        <div class="podium-pts">${p2.points.toFixed(1)} pts</div>
+        <div class="podium-box podium-2">2</div>
+      </div>
+      <div class="podium-step">
+        <div class="podium-name">${p1.name}</div>
+        <div class="podium-pts">${p1.points.toFixed(1)} pts</div>
+        <div class="podium-box podium-1">1</div>
+      </div>
+      <div class="podium-step">
+        <div class="podium-name">${p3.name}</div>
+        <div class="podium-pts">${p3.points.toFixed(1)} pts</div>
+        <div class="podium-box podium-3">3</div>
+      </div>
+    `;
+
+    const bestRef = [...players].sort((a, b) => b.refs - a.refs)[0] || { name: "-", refs: 0 };
+    const mostWins = [...players].sort((a, b) => b.wins - a.wins)[0] || { name: "-", wins: 0 };
+
+    document.getElementById('honors-card').innerHTML = `
+      <div style="margin-bottom: 0.5rem; font-size: 0.8rem;"><strong>🥇 Most Matches Won:</strong> ${mostWins.name} (${mostWins.wins} wins)</div>
+      <div style="font-size: 0.8rem;"><strong>📢 Top Student Referee:</strong> ${bestRef.name} (${bestRef.refs} arbitrations)</div>
+    `;
   }
 
   /* Match Logging Sequence */
@@ -423,17 +573,6 @@
       renderRefereeList();
     } else {
       document.getElementById('winner-ref-banner').classList.add('hidden');
-      showScreen('screen-winner');
-      renderWinnerList();
-    }
-  }
-
-  function cancelMatchFlow() {
-    showScreen('screen-standings');
-  }
-
-  function goToStep(step) {
-    if (step === 'winner') {
       showScreen('screen-winner');
       renderWinnerList();
     }
@@ -491,19 +630,19 @@
   function renderLoserList() {
     const list = document.getElementById('loser-pick-list');
     const winnerIdx = players.indexOf(selectedWinner);
-
-    // Rule: can challenge up to 5 ranks above or any below
     const minRankIdx = Math.max(0, winnerIdx - 5);
+
     const eligible = players.filter((p, idx) => {
       if (p.id === selectedWinner.id) return false;
       if (selectedRef && p.id === selectedRef.id) return false;
-      return idx >= minRankIdx;
+      return true; // Show all, but validate gap
     });
 
     list.innerHTML = eligible.map((p) => {
       const idx = players.indexOf(p);
+      const isOverGap = idx < minRankIdx;
       return `
-        <div class="player-card" onclick="chooseLoser(${p.id})">
+        <div class="player-card" onclick="chooseLoser(${p.id}, ${isOverGap})">
           <div class="player-info-group">
             <div class="rank-circle ${idx === 1 ? 'rank-secondary' : ''}">${idx + 1}</div>
             <div>
@@ -511,36 +650,38 @@
               <div class="player-points">${p.points.toFixed(1)} points</div>
             </div>
           </div>
+          ${isOverGap ? '<span class="badge-pill" style="color: #dc2626; background: #fee2e2;">Gap > 5 (PIN)</span>' : ''}
         </div>
       `;
     }).join('');
   }
 
-  function chooseLoser(id) {
+  function chooseLoser(id, isOverGap) {
+    if (isOverGap) {
+      if (!confirm("This match exceeds the 5-rank difference rule. Override with teacher permission?")) return;
+      if (config.pinEnabled) {
+        const pin = prompt("Enter Teacher PIN to validate gap > 5:");
+        if (pin !== config.pinCode) return alert("Incorrect PIN. Match aborted.");
+      }
+    }
     selectedLoser = players.find(p => p.id === id);
     openConfirmModal();
   }
 
-  /* Exact Scoring Formula from ATP EPS Rulebook */
+  /* Exact ATP Scoring Engine */
   function calculatePoints(wIdx, lIdx) {
-    const rankDiff = lIdx - wIdx; // Positive if winner beat higher rank, negative if defending
+    const rankDiff = lIdx - wIdx;
     let winnerPoints = 3.0;
-
     const scale = {
       "5": 5.5, "4": 5.0, "3": 4.5, "2": 4.0, "1": 3.5,
       "-1": 3.0, "-2": 2.5, "-3": 2.0, "-4": 1.5, "-5": 1.0
     };
-
-    if (scale[rankDiff.toString()]) {
-      winnerPoints = scale[rankDiff.toString()];
-    }
-
+    if (scale[rankDiff.toString()]) winnerPoints = scale[rankDiff.toString()];
     return { winnerPoints, loserPoints: 0.5 };
   }
 
   function openConfirmModal() {
     document.getElementById('confirm-match-subtitle').innerText = `${selectedWinner.name} vs ${selectedLoser.name}`;
-    
     const wIdx = players.indexOf(selectedWinner);
     const lIdx = players.indexOf(selectedLoser);
     const { winnerPoints, loserPoints } = calculatePoints(wIdx, lIdx);
@@ -554,9 +695,7 @@
     document.getElementById('modal-confirm').classList.remove('hidden');
   }
 
-  function closeConfirmModal() {
-    document.getElementById('modal-confirm').classList.add('hidden');
-  }
+  function closeConfirmModal() { document.getElementById('modal-confirm').classList.add('hidden'); }
 
   function commitMatchScore() {
     const wIdx = players.indexOf(selectedWinner);
@@ -569,10 +708,21 @@
     selectedLoser.points += loserPoints;
     selectedLoser.losses += 1;
 
+    let refEarned = 0;
     if (selectedRef) {
-      selectedRef.points += parseFloat(config.refPoints);
+      refEarned = parseFloat(config.refPoints);
+      selectedRef.points += refEarned;
       selectedRef.refs += 1;
     }
+
+    matchHistory.push({
+      winnerId: selectedWinner.id,
+      loserId: selectedLoser.id,
+      refId: selectedRef ? selectedRef.id : null,
+      winPts: winnerPoints,
+      losePts: loserPoints,
+      refPts: refEarned
+    });
 
     closeConfirmModal();
     persist();
@@ -580,7 +730,38 @@
     renderStandings();
   }
 
-  /* Settings Controls */
+  function undoLastMatch() {
+    if (matchHistory.length === 0) return alert("No recent matches to undo.");
+    if (config.pinEnabled) {
+      const pin = prompt("Enter Teacher PIN to undo match:");
+      if (pin !== config.pinCode) return alert("Incorrect PIN.");
+    }
+    const last = matchHistory.pop();
+    const winner = players.find(p => p.id === last.winnerId);
+    const loser = players.find(p => p.id === last.loserId);
+    const ref = last.refId ? players.find(p => p.id === last.refId) : null;
+
+    if (winner) { winner.points = Math.max(0, winner.points - last.winPts); winner.wins--; }
+    if (loser) { loser.points = Math.max(0, loser.points - last.losePts); loser.losses--; }
+    if (ref) { ref.points = Math.max(0, ref.points - last.refPts); ref.refs--; }
+
+    persist();
+    renderStandings();
+    alert("Last match reversed.");
+  }
+
+  function exportStandingsCSV() {
+    let csv = "Rank,Name,Points,Wins,Losses,Refereed\n";
+    players.sort((a, b) => b.points - a.points).forEach((p, i) => {
+      csv += `${i + 1},"${p.name}",${p.points.toFixed(1)},${p.wins},${p.losses},${p.refs}\n`;
+    });
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `PE_Tournament_Standings_${new Date().toISOString().slice(0, 10)}.csv`;
+    link.click();
+  }
+
   function togglePinSetting() {
     const active = document.getElementById('setting-pin-toggle').checked;
     document.getElementById('setting-pin-code').classList.toggle('hidden', !active);
@@ -591,7 +772,7 @@
     config.pinEnabled = document.getElementById('setting-pin-toggle').checked;
     config.pinCode = document.getElementById('setting-pin-code').value || "1234";
     persist();
-    alert('Settings updated.');
+    alert("Settings saved.");
     showScreen('screen-home');
   }
 
