@@ -68,7 +68,7 @@
     .guide-step-box { background: #f8fafc; border-left: 3px solid #255d8f; padding: 0.5rem 0.75rem; margin-bottom: 0.5rem; border-radius: 0 6px 6px 0; }
     .guide-step-title { font-size: 0.78rem; font-weight: 700; color: #0f172a; margin-bottom: 0.15rem; }
 
-    /* Sport Rules Tab Navigation inside Info Screen */
+    /* Sport Rules Tab Navigation */
     .rule-sport-select { width: 100%; border: 1.5px solid #255d8f; background: #eff6ff; color: #1e40af; border-radius: 8px; padding: 0.6rem; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.75rem; outline: none; }
     .sport-rule-details { background: #f8fafc; border-radius: 8px; padding: 0.75rem; border: 1px solid #e2e8f0; }
 
@@ -179,7 +179,7 @@
       <h1 class="home-title">PE LADDER 梯级排位赛</h1>
       <p class="home-subtitle">包玉刚实验学校体育组 YK Pao School Physical Education</p>
 
-      <!-- SWIPEABLE SPORTS CAROUSEL (INCLUDES FLOORBALL, FRISBEE, SWIMMING) -->
+      <!-- SWIPEABLE SPORTS CAROUSEL (WITH BASKETBALL MATCH & TEAMS) -->
       <div class="sports-carousel-wrapper">
         <div class="carousel-label-row">
           <span class="carousel-label">Select Sport 选择运动项目</span>
@@ -192,15 +192,20 @@
             <div class="carousel-sport-title">Badminton</div>
             <div class="carousel-sport-cn">羽毛球</div>
           </div>
+          <div class="carousel-card" onclick="selectSportCard('Basketball Match', '篮球比赛', this)">
+            <span class="carousel-sport-icon">🏀</span>
+            <div class="carousel-sport-title">Basketball</div>
+            <div class="carousel-sport-cn">篮球对抗赛</div>
+          </div>
+          <div class="carousel-card" onclick="selectSportCard('Teams', '团队排位', this)">
+            <span class="carousel-sport-icon">👥</span>
+            <div class="carousel-sport-title">Team Duels</div>
+            <div class="carousel-sport-cn">团队对抗梯级</div>
+          </div>
           <div class="carousel-card" onclick="selectSportCard('Table Tennis', '乒乓球', this)">
             <span class="carousel-sport-icon">🏓</span>
             <div class="carousel-sport-title">Table Tennis</div>
             <div class="carousel-sport-cn">乒乓球</div>
-          </div>
-          <div class="carousel-card" onclick="selectSportCard('Pickleball', '匹克球', this)">
-            <span class="carousel-sport-icon">🥒</span>
-            <div class="carousel-sport-title">Pickleball</div>
-            <div class="carousel-sport-cn">匹克球</div>
           </div>
           <div class="carousel-card" onclick="selectSportCard('Floorball', '旱地冰球', this)">
             <span class="carousel-sport-icon">🏑</span>
@@ -217,14 +222,19 @@
             <div class="carousel-sport-title">Swimming</div>
             <div class="carousel-sport-cn">游泳挑战</div>
           </div>
+          <div class="carousel-card" onclick="selectSportCard('Pickleball', '匹克球', this)">
+            <span class="carousel-sport-icon">🥒</span>
+            <div class="carousel-sport-title">Pickleball</div>
+            <div class="carousel-sport-cn">匹克球</div>
+          </div>
           <div class="carousel-card" onclick="selectSportCard('Tennis', '网球', this)">
             <span class="carousel-sport-icon">🎾</span>
             <div class="carousel-sport-title">Tennis</div>
             <div class="carousel-sport-cn">网球</div>
           </div>
           <div class="carousel-card" onclick="selectSportCard('Basketball 1v1', '篮球单挑', this)">
-            <span class="carousel-sport-icon">🏀</span>
-            <div class="carousel-sport-title">Basketball</div>
+            <span class="carousel-sport-icon">⛹️</span>
+            <div class="carousel-sport-title">BBall 1v1</div>
             <div class="carousel-sport-cn">篮球单挑</div>
           </div>
           <div class="carousel-card" onclick="selectSportCard('Volleyball', '排球', this)">
@@ -283,14 +293,14 @@
           <div class="btn-sub-cn">进入当前比赛看板</div>
         </button>
         <button class="btn-home-outline" onclick="openGroups()">
-          <div>👥 CLASS ROSTERS</div>
-          <div class="btn-sub-cn">班级名单与导入</div>
+          <div>👥 CLASS ROSTERS & TEAMS</div>
+          <div class="btn-sub-cn">班级名单与队伍管理</div>
         </button>
       </div>
     </div>
   </section>
 
-  <!-- 2. FULL INFORMATION, GENERAL RULES & SPORT-SPECIFIC HANDBOOK -->
+  <!-- 2. FULL INFORMATION, RULES & USER INSTRUCTIONS -->
   <section id="screen-info" class="hidden">
     <div class="top-bar">
       <button class="nav-btn-left" onclick="showScreen('screen-home')">‹</button>
@@ -303,21 +313,21 @@
         <div class="info-card-header">📖 How to Use This App 快速使用指南</div>
         
         <div class="guide-step-box">
-          <div class="guide-step-title">1. Setup & Roster 班级准备</div>
-          <p>Click <strong>Class Rosters 班级名单</strong> on the home screen. Paste your student roster from Excel/CSV (one name per line) and tap "Import Names 导入名单". Tap "Launch Tournament 开启比赛" to initialize the ladder.</p>
-          <p style="color: #64748b;">点击首页“班级名单”，直接复制Excel或ManageBac中的学生姓名粘贴并点击“导入名单”，点击“开启比赛”即可开始。</p>
+          <div class="guide-step-title">1. Setup & Roster / Teams 班级与队伍准备</div>
+          <p>Click <strong>Class Rosters 班级名单</strong> on the home screen. Paste student names or team squads (e.g. Red House, Blue House, Team A, Team B) from Excel/CSV and tap "Import Names 导入名单". Tap "Launch Tournament 开启比赛" to initialize the ladder.</p>
+          <p style="color: #64748b;">点击首页“班级名单”，直接复制Excel或ManageBac中的学生个人名单或队伍名称（如：红队、蓝队、Team 1）并点击“导入名单”，点击“开启比赛”即可开始排位。</p>
         </div>
 
         <div class="guide-step-box">
           <div class="guide-step-title">2. Choose Your Sport 选定运动项目</div>
-          <p>Swipe the horizontal carousel on the home screen to pick your active sport (e.g., Badminton, Floorball, Swimming, Ultimate Frisbee). The titles and score exports will match your selection.</p>
-          <p style="color: #64748b;">在首页横向滑动图标，选择羽毛球、旱地冰球、游泳、极限飞盘等当前正在进行的项目。</p>
+          <p>Swipe the horizontal carousel on the home screen to pick your active sport (e.g., Badminton, Basketball Match, Team Duels, Floorball, Swimming). The titles and score exports will match your selection.</p>
+          <p style="color: #64748b;">在首页横向滑动图标，选择羽毛球、篮球比赛、团队排位、旱地冰球、游泳等当前正在进行的项目。</p>
         </div>
 
         <div class="guide-step-box">
           <div class="guide-step-title">3. Challenges & Logging Matches 发起挑战与记录比分</div>
-          <p>Students find an opponent ranked up to <strong>5 spots above them</strong>. Tap <strong>Match WITH Referee (有裁判)</strong> or <strong>WITHOUT Referee (无裁判)</strong>, select the players, and confirm the score.</p>
-          <p style="color: #64748b;">学生只能向上挑战最多高自己5名的对手。在场地边选定一名学生裁判，点击下方按钮依次选定裁判、获胜方和负方，确认即可实时更新积分。</p>
+          <p>Students or teams find an opponent ranked up to <strong>5 spots above them</strong>. Tap <strong>Match WITH Referee (有裁判)</strong> or <strong>WITHOUT Referee (无裁判)</strong>, select the players/teams, and confirm the score.</p>
+          <p style="color: #64748b;">学生或队伍只能向上挑战最多高自己5名的对手。在场地边选定一名学生裁判，点击下方按钮依次选定裁判、获胜方和负方，确认即可实时更新积分。</p>
         </div>
 
         <div class="guide-step-box">
@@ -333,13 +343,15 @@
         <p>Select a sport below to view classroom PE match parameters, scoring limits, and referee guidelines:</p>
         <select id="rule-sport-dropdown" class="rule-sport-select" onchange="renderSportRuleDetails(this.value)">
           <option value="Badminton">🏸 Badminton (羽毛球)</option>
+          <option value="Basketball Match">🏀 Basketball Match (篮球全场/半场对抗赛)</option>
+          <option value="Teams">👥 Team Duels / Teams (团队对抗赛)</option>
           <option value="Table Tennis">🏓 Table Tennis (乒乓球)</option>
-          <option value="Pickleball">🥒 Pickleball (匹克球)</option>
           <option value="Floorball">🏑 Floorball (旱地冰球)</option>
           <option value="Ultimate Frisbee">🥏 Ultimate Frisbee (极限飞盘)</option>
           <option value="Swimming">🏊 Swimming (游泳挑战)</option>
+          <option value="Pickleball">🥒 Pickleball (匹克球)</option>
           <option value="Tennis">🎾 Tennis (网球)</option>
-          <option value="Basketball 1v1">🏀 Basketball 1v1 (篮球单挑)</option>
+          <option value="Basketball 1v1">⛹️ Basketball 1v1 (篮球单挑)</option>
           <option value="Volleyball">🏐 Volleyball (排球/气排球)</option>
           <option value="Football / Panna">⚽ Football / Panna (足球单挑/点球)</option>
           <option value="Squash">👟 Squash (壁球)</option>
@@ -363,7 +375,7 @@
       <div class="info-card">
         <div class="info-card-header">🤺 Challenge Rules 挑战规则</div>
         <ul>
-          <li><strong>Upward Challenges 向上挑战:</strong> You can only challenge peers ranked <em>above</em> you on the leaderboard. (只能挑战排名高于自己的同学)。</li>
+          <li><strong>Upward Challenges 向上挑战:</strong> You can only challenge peers ranked <em>above</em> you on the leaderboard. (只能挑战排名高于自己的同学或队伍)。</li>
           <li><strong>5-Rank Gap Limit 5级差距限制:</strong> Maximum allowed ranking gap is <strong>5 ranks</strong> (最多只能挑战高出自己5个位次的对手)。</li>
           <li><strong>Defender Duty 防守义务:</strong> Defenders must accept legal challenges to protect their ladder position (被挑战者必须应战以保住排位)。</li>
         </ul>
@@ -399,7 +411,7 @@
         </table>
 
         <div class="defeat-alert" style="margin-top: 0.85rem;">
-          🛡️ <strong>Participation Incentive 鼓励参与机制:</strong> In case of defeat, the loser receives <strong>0.5 points</strong> for effort and participation. No one leaves a match with zero. (失利选手同样获得0.5保底分，鼓励积极参赛)。
+          🛡️ <strong>Participation Incentive 鼓励参与机制:</strong> In case of defeat, the loser receives <strong>0.5 points</strong> for effort and participation. No one leaves a match with zero. (失利选手或队伍同样获得0.5保底分，鼓励积极参赛)。
         </div>
       </div>
 
@@ -415,7 +427,7 @@
         <div class="info-card-header">🥇 Podiums & Collective Honors 领奖台与多维荣誉</div>
         <p>The app honors achievement beyond raw match wins across 4 categories (综合表彰四个维度的优秀表现):</p>
         <ul>
-          <li><strong>Most Matches Played 最活跃选手:</strong> Rewards grit, physical activity, and participation (比赛场次最多)。</li>
+          <li><strong>Most Matches Played 最活跃选手/团队:</strong> Rewards grit, physical activity, and participation (比赛场次最多)。</li>
           <li><strong>Most Victories 胜利之星:</strong> Rewards top match winning performance (获胜总场次最多)。</li>
           <li><strong>Best Progression 最佳进步奖:</strong> Celebrates students who climbed the furthest up the ladder (排位位次提升最多)。</li>
           <li><strong>Top Student Referee 最佳金哨裁判:</strong> Honors student officials who contributed the most arbitrations (执裁场次最多)。</li>
@@ -479,15 +491,15 @@
   <section id="screen-setup" class="hidden">
     <div class="top-bar">
       <button class="nav-btn-left" onclick="showScreen('screen-home')">‹</button>
-      Class Roster 班级名单与准备
+      Class Roster & Teams 班级名单与队伍
     </div>
     <div class="content-area">
       <div class="setting-card">
-        <label style="font-size: 0.8rem; font-weight: 700; color: #1e3a8a;">📋 Paste from Excel / CSV 从表格批量导入</label>
-        <p style="font-size: 0.72rem; color: #64748b; margin-bottom: 0.4rem;">One student name per line (每行一个姓名):</p>
-        <textarea id="batch-roster-input" class="setting-textarea" rows="4" placeholder="Denis Julia&#10;Bernard Lucas&#10;Blanc Camille"></textarea>
+        <label style="font-size: 0.8rem; font-weight: 700; color: #1e3a8a;">📋 Paste from Excel / CSV 从表格批量导入 (选手或队伍)</label>
+        <p style="font-size: 0.72rem; color: #64748b; margin-bottom: 0.4rem;">One student name or team name per line (每行一个选手姓名或队伍名):</p>
+        <textarea id="batch-roster-input" class="setting-textarea" rows="4" placeholder="Denis Julia&#10;Bernard Lucas&#10;Red House Team&#10;Blue House Team"></textarea>
         <button class="btn-action-primary" style="margin-top: 0.5rem; width: 100%; padding: 0.6rem; border-radius: 8px;" onclick="importBatchRoster()">
-          <div>Import Names 导入名单</div>
+          <div>Import Names / Teams 导入名单</div>
         </button>
       </div>
       <div id="setup-player-list"></div>
@@ -543,7 +555,7 @@
         <div class="metric-box">
           <div class="metric-icon">📊</div>
           <div class="metric-value val-green" id="stat-avg-matches">0.0</div>
-          <div class="metric-label">Avg/Player<br>人均场次</div>
+          <div class="metric-label">Avg/Squad<br>人均场次</div>
         </div>
         <div class="metric-box">
           <div class="metric-icon">📢</div>
@@ -659,7 +671,7 @@
   let selectedWinner = null;
   let selectedLoser = null;
 
-  /* Sport Rule Database */
+  /* Complete Sport Rule Database */
   const sportRules = {
     "Badminton": {
       name: "Badminton (羽毛球)",
@@ -670,6 +682,24 @@
       fouls: "Shuttlecock touching net, double hit, or stepping over center line.",
       foulsCN: "触网、连击、发球过腰、球落界外或脚过中线为违例犯规。"
     },
+    "Basketball Match": {
+      name: "Basketball Match (篮球全场/半场对抗赛)",
+      points: "3v3 half-court (first to 15 or 8 mins running clock) or 5v5 full court.",
+      pointsCN: "3对3半场对决（先得15分或定时8分钟），或全场5对5对抗赛。",
+      service: "Jump ball or coin toss; check ball at the top of the key after dead balls.",
+      serviceCN: "争球或猜拳开赛；死球后在弧顶洗球（Check-ball）开球。",
+      fouls: "Team foul penalty bonus (shoot free throws after 5 team fouls), traveling, double dribble, charging.",
+      foulsCN: "全队累计5次犯规后执行罚球；严禁带球走步、两次运球、带球撞人或防守打手。"
+    },
+    "Teams": {
+      name: "Team Duels / Teams (团队对抗梯级赛)",
+      points: "Combined squad point matches (best of 3 or 5 individual rubbers across courts).",
+      pointsCN: "团队总分对决（多片场地同时开赛，按大比分三局两胜或五局三胜计算总胜负）。",
+      service: "Sub-rosters submit matchups simultaneously to the referee.",
+      serviceCN: "两队队长向主裁判同时提交出场对阵名单。",
+      fouls: "Unsportsmanlike bench behavior, illegal substitutions, delaying squad rotation.",
+      foulsCN: "替补席违例、违规换人、拖延队伍轮转均视作违规扣减队伍积分。"
+    },
     "Table Tennis": {
       name: "Table Tennis (乒乓球)",
       points: "Game to 11 points. Win by 2 points (deuce at 10-10).",
@@ -678,15 +708,6 @@
       serviceCN: "每2分轮换发球权，发球须向上抛起16cm以上并两边各跳一次。",
       fouls: "Touching table surface with free hand or volleying before bounce.",
       foulsCN: "非持拍手触台、身体移动球台或球未落台直接击球即为失分。"
-    },
-    "Pickleball": {
-      name: "Pickleball (匹克球)",
-      points: "First to 11 points (win by 2). In PE ladder, rally point scoring to 9 points is recommended.",
-      pointsCN: "传统发球得分制至11分（领先2分）；课堂建议采用9分每球得分制以加快轮转。",
-      service: "Underhand serve cross-court beyond the Non-Volley Zone (Kitchen).",
-      serviceCN: "低手对角线发球，必须越过厨房区（非截击区）边线。",
-      fouls: "Volleying inside the 7ft Non-Volley Zone (Kitchen) before ball bounces.",
-      foulsCN: "在非截击区（厨房区）内凌空截击，或截击后身体动量踩入厨房区均为犯规。"
     },
     "Floorball": {
       name: "Floorball (旱地冰球 / 软式曲棍球)",
@@ -714,6 +735,15 @@
       serviceCN: "听发令哨声从跳台出发或水下蹬壁出发。",
       fouls: "False start, pulling lane line, stroke technique infractions (e.g., non-simultaneous breaststroke kick).",
       foulsCN: "抢跳抢发、拉拽泳道线、蛙泳双腿不同步蹬水等判为犯规。"
+    },
+    "Pickleball": {
+      name: "Pickleball (匹克球)",
+      points: "First to 11 points (win by 2). In PE ladder, rally point scoring to 9 points is recommended.",
+      pointsCN: "传统发球得分制至11分（领先2分）；课堂建议采用9分每球得分制以加快轮转。",
+      service: "Underhand serve cross-court beyond the Non-Volley Zone (Kitchen).",
+      serviceCN: "低手对角线发球，必须越过厨房区（非截击区）边线。",
+      fouls: "Volleying inside the 7ft Non-Volley Zone (Kitchen) before ball bounces.",
+      foulsCN: "在非截击区（厨房区）内凌空截击，或截击后身体动量踩入厨房区均为犯规。"
     },
     "Tennis": {
       name: "Tennis (网球)",
@@ -835,7 +865,6 @@
       activeSportCN = cnName;
       document.getElementById('setting-sport-name').value = `${activeSport} ${activeSportCN}`;
       
-      // Auto sync dropdown in rules screen if it exists
       const dropdown = document.getElementById('rule-sport-dropdown');
       if (dropdown && sportRules[enName]) {
         dropdown.value = enName;
@@ -876,12 +905,12 @@
         <p style="color: #64748b; margin: 0;">${rule.pointsCN}</p>
       </div>
       <div style="margin-bottom: 0.4rem;">
-        <span style="font-weight: 700; color: #0f172a; font-size: 0.75rem;">Serving & Kickoff 发球与开球:</span>
+        <span style="font-weight: 700; color: #0f172a; font-size: 0.75rem;">Serving & Possession 发球与球权:</span>
         <p style="margin: 2px 0;">${rule.service}</p>
         <p style="color: #64748b; margin: 0;">${rule.serviceCN}</p>
       </div>
       <div>
-        <span style="font-weight: 700; color: #b91c1c; font-size: 0.75rem;">Common Fouls 常见违例与失误:</span>
+        <span style="font-weight: 700; color: #b91c1c; font-size: 0.75rem;">Common Fouls 常见违例与失分:</span>
         <p style="margin: 2px 0;">${rule.fouls}</p>
         <p style="color: #64748b; margin: 0;">${rule.foulsCN}</p>
       </div>
@@ -915,7 +944,7 @@
 
   function renderStandings() {
     players.sort((a, b) => b.points - a.points);
-    document.getElementById('player-count-label').innerText = `${players.length} players / 位选手`;
+    document.getElementById('player-count-label').innerText = `${players.length} participants / 位选手或队伍`;
     document.getElementById('tourney-name-header').innerText = `${activeSport} ${activeSportCN}`;
 
     const list = document.getElementById('tournament-player-list');
@@ -1063,7 +1092,7 @@
 
   function importBatchRoster() {
     const text = document.getElementById('batch-roster-input').value.trim();
-    if (!text) return alert("Please paste student names first / 请先粘贴学生名单。");
+    if (!text) return alert("Please paste student names or team squads / 请先粘贴选手名单或队伍。");
     const names = text.split('\n').map(n => n.trim()).filter(n => n.length > 0);
     players = names.map((name, i) => ({
       id: Date.now() + i,
@@ -1080,7 +1109,7 @@
   }
 
   function startTournament() {
-    if (players.length < 2) return alert("Add at least 2 players to start / 至少需要2名选手。");
+    if (players.length < 2) return alert("Add at least 2 participants / 至少需要2名选手或队伍。");
     showScreen('screen-standings');
     renderStandings();
   }
