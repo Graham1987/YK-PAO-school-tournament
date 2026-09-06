@@ -39,7 +39,7 @@
     .sports-carousel { display: flex; gap: 0.5rem; overflow-x: auto; padding: 0.25rem 0.25rem 0.5rem 0.25rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
     .sports-carousel::-webkit-scrollbar { display: none; }
     
-    .carousel-card { flex: 0 0 auto; scroll-snap-align: start; min-width: 110px; padding: 0.65rem 0.75rem; border-radius: 12px; border: 1.5px solid #e2e8f0; background: #f8fafc; text-align: center; cursor: pointer; transition: all 0.2s ease; }
+    .carousel-card { flex: 0 0 auto; scroll-snap-align: start; min-width: 112px; padding: 0.65rem 0.75rem; border-radius: 12px; border: 1.5px solid #e2e8f0; background: #f8fafc; text-align: center; cursor: pointer; transition: all 0.2s ease; }
     .carousel-card:active { transform: scale(0.96); }
     .carousel-card.active { border-color: #255d8f; background: #eff6ff; box-shadow: 0 3px 8px rgba(37,93,143,0.15); }
     .carousel-sport-icon { font-size: 1.35rem; margin-bottom: 0.25rem; display: block; }
@@ -64,8 +64,13 @@
     .info-card li { font-size: 0.78rem; color: #475569; line-height: 1.5; margin-bottom: 0.35rem; }
     .info-callout { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 0.6rem 0.75rem; font-size: 0.75rem; color: #166534; margin-top: 0.5rem; line-height: 1.45; }
     .defeat-alert { background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412; padding: 0.6rem 0.75rem; border-radius: 8px; font-size: 0.75rem; line-height: 1.45; }
+    
     .guide-step-box { background: #f8fafc; border-left: 3px solid #255d8f; padding: 0.5rem 0.75rem; margin-bottom: 0.5rem; border-radius: 0 6px 6px 0; }
     .guide-step-title { font-size: 0.78rem; font-weight: 700; color: #0f172a; margin-bottom: 0.15rem; }
+
+    /* Sport Rules Tab Navigation inside Info Screen */
+    .rule-sport-select { width: 100%; border: 1.5px solid #255d8f; background: #eff6ff; color: #1e40af; border-radius: 8px; padding: 0.6rem; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.75rem; outline: none; }
+    .sport-rule-details { background: #f8fafc; border-radius: 8px; padding: 0.75rem; border: 1px solid #e2e8f0; }
 
     .score-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.76rem; }
     .score-table tr { border-bottom: 1px solid #f1f5f9; }
@@ -174,7 +179,7 @@
       <h1 class="home-title">PE LADDER 梯级排位赛</h1>
       <p class="home-subtitle">包玉刚实验学校体育组 YK Pao School Physical Education</p>
 
-      <!-- SWIPEABLE SPORTS CAROUSEL -->
+      <!-- SWIPEABLE SPORTS CAROUSEL (INCLUDES FLOORBALL, FRISBEE, SWIMMING) -->
       <div class="sports-carousel-wrapper">
         <div class="carousel-label-row">
           <span class="carousel-label">Select Sport 选择运动项目</span>
@@ -192,20 +197,35 @@
             <div class="carousel-sport-title">Table Tennis</div>
             <div class="carousel-sport-cn">乒乓球</div>
           </div>
-          <div class="carousel-card" onclick="selectSportCard('Tennis', '网球', this)">
-            <span class="carousel-sport-icon">🎾</span>
-            <div class="carousel-sport-title">Tennis</div>
-            <div class="carousel-sport-cn">网球</div>
-          </div>
           <div class="carousel-card" onclick="selectSportCard('Pickleball', '匹克球', this)">
             <span class="carousel-sport-icon">🥒</span>
             <div class="carousel-sport-title">Pickleball</div>
             <div class="carousel-sport-cn">匹克球</div>
           </div>
+          <div class="carousel-card" onclick="selectSportCard('Floorball', '旱地冰球', this)">
+            <span class="carousel-sport-icon">🏑</span>
+            <div class="carousel-sport-title">Floorball</div>
+            <div class="carousel-sport-cn">旱地冰球</div>
+          </div>
+          <div class="carousel-card" onclick="selectSportCard('Ultimate Frisbee', '极限飞盘', this)">
+            <span class="carousel-sport-icon">🥏</span>
+            <div class="carousel-sport-title">Frisbee</div>
+            <div class="carousel-sport-cn">极限飞盘</div>
+          </div>
+          <div class="carousel-card" onclick="selectSportCard('Swimming', '游泳挑战', this)">
+            <span class="carousel-sport-icon">🏊</span>
+            <div class="carousel-sport-title">Swimming</div>
+            <div class="carousel-sport-cn">游泳挑战</div>
+          </div>
+          <div class="carousel-card" onclick="selectSportCard('Tennis', '网球', this)">
+            <span class="carousel-sport-icon">🎾</span>
+            <div class="carousel-sport-title">Tennis</div>
+            <div class="carousel-sport-cn">网球</div>
+          </div>
           <div class="carousel-card" onclick="selectSportCard('Basketball 1v1', '篮球单挑', this)">
             <span class="carousel-sport-icon">🏀</span>
             <div class="carousel-sport-title">Basketball</div>
-            <div class="carousel-sport-cn">篮球 1v1</div>
+            <div class="carousel-sport-cn">篮球单挑</div>
           </div>
           <div class="carousel-card" onclick="selectSportCard('Volleyball', '排球', this)">
             <span class="carousel-sport-icon">🏐</span>
@@ -270,7 +290,7 @@
     </div>
   </section>
 
-  <!-- 2. FULL INFORMATION, RULES & USER INSTRUCTIONS -->
+  <!-- 2. FULL INFORMATION, GENERAL RULES & SPORT-SPECIFIC HANDBOOK -->
   <section id="screen-info" class="hidden">
     <div class="top-bar">
       <button class="nav-btn-left" onclick="showScreen('screen-home')">‹</button>
@@ -290,8 +310,8 @@
 
         <div class="guide-step-box">
           <div class="guide-step-title">2. Choose Your Sport 选定运动项目</div>
-          <p>Swipe the horizontal carousel on the home screen to pick your active sport (e.g., Badminton, Table Tennis, Pickleball). The titles and score exports will match your selection.</p>
-          <p style="color: #64748b;">在首页横向滑动图标，选择羽毛球、乒乓球或匹克球等当前正在进行的项目。</p>
+          <p>Swipe the horizontal carousel on the home screen to pick your active sport (e.g., Badminton, Floorball, Swimming, Ultimate Frisbee). The titles and score exports will match your selection.</p>
+          <p style="color: #64748b;">在首页横向滑动图标，选择羽毛球、旱地冰球、游泳、极限飞盘等当前正在进行的项目。</p>
         </div>
 
         <div class="guide-step-box">
@@ -306,8 +326,33 @@
           <p style="color: #64748b;">点击排位看板右上角“📊”可浏览四项荣誉领奖台；在设置(⚙️)中可将完整积分、胜率及裁判次数一键导出为CSV表格。</p>
         </div>
       </div>
+
+      <!-- Section: Sport-Specific Rules Handbook -->
+      <div class="info-card">
+        <div class="info-card-header">📋 Sport-Specific Rules 各项目竞赛规则细则</div>
+        <p>Select a sport below to view classroom PE match parameters, scoring limits, and referee guidelines:</p>
+        <select id="rule-sport-dropdown" class="rule-sport-select" onchange="renderSportRuleDetails(this.value)">
+          <option value="Badminton">🏸 Badminton (羽毛球)</option>
+          <option value="Table Tennis">🏓 Table Tennis (乒乓球)</option>
+          <option value="Pickleball">🥒 Pickleball (匹克球)</option>
+          <option value="Floorball">🏑 Floorball (旱地冰球)</option>
+          <option value="Ultimate Frisbee">🥏 Ultimate Frisbee (极限飞盘)</option>
+          <option value="Swimming">🏊 Swimming (游泳挑战)</option>
+          <option value="Tennis">🎾 Tennis (网球)</option>
+          <option value="Basketball 1v1">🏀 Basketball 1v1 (篮球单挑)</option>
+          <option value="Volleyball">🏐 Volleyball (排球/气排球)</option>
+          <option value="Football / Panna">⚽ Football / Panna (足球单挑/点球)</option>
+          <option value="Squash">👟 Squash (壁球)</option>
+          <option value="Dodgeball 1v1">🎯 Dodgeball 1v1 (躲避球)</option>
+          <option value="Handball">🤾 Handball (手球攻防)</option>
+          <option value="Track & Field">🏃 Track & Field (田径冲刺)</option>
+          <option value="Fitness / Beep">⏱️ Fitness / Beep (体能挑战)</option>
+          <option value="Judo / Combat">🥋 Martial Arts / Judo (武术与柔道)</option>
+        </select>
+        <div id="sport-rule-content" class="sport-rule-details"></div>
+      </div>
       
-      <!-- Section: Overview -->
+      <!-- Section: ATP Ladder Concept -->
       <div class="info-card">
         <div class="info-card-header">🏆 ATP Ladder System 梯级挑战赛机制</div>
         <p>Inspired by professional ATP tennis ladders, this format eliminates bracket downtime. Instead of sitting out after a loss, all students stay continuously active, challenging nearby opponents to climb the class rankings.</p>
@@ -614,6 +659,154 @@
   let selectedWinner = null;
   let selectedLoser = null;
 
+  /* Sport Rule Database */
+  const sportRules = {
+    "Badminton": {
+      name: "Badminton (羽毛球)",
+      points: "Standard match to 11 or 15 rally points (sudden death at time limit).",
+      pointsCN: "采用11分或15分每球得分制；下课哨响以领先者获胜。",
+      service: "Diagonal underhand service into opponent service court.",
+      serviceCN: "对角线发球，击球点须低于腰部及发球线后。",
+      fouls: "Shuttlecock touching net, double hit, or stepping over center line.",
+      foulsCN: "触网、连击、发球过腰、球落界外或脚过中线为违例犯规。"
+    },
+    "Table Tennis": {
+      name: "Table Tennis (乒乓球)",
+      points: "Game to 11 points. Win by 2 points (deuce at 10-10).",
+      pointsCN: "11分制，10平后须领先2分获胜。",
+      service: "Alternates every 2 points. Ball must bounce on server's side then receiver's side.",
+      serviceCN: "每2分轮换发球权，发球须向上抛起16cm以上并两边各跳一次。",
+      fouls: "Touching table surface with free hand or volleying before bounce.",
+      foulsCN: "非持拍手触台、身体移动球台或球未落台直接击球即为失分。"
+    },
+    "Pickleball": {
+      name: "Pickleball (匹克球)",
+      points: "First to 11 points (win by 2). In PE ladder, rally point scoring to 9 points is recommended.",
+      pointsCN: "传统发球得分制至11分（领先2分）；课堂建议采用9分每球得分制以加快轮转。",
+      service: "Underhand serve cross-court beyond the Non-Volley Zone (Kitchen).",
+      serviceCN: "低手对角线发球，必须越过厨房区（非截击区）边线。",
+      fouls: "Volleying inside the 7ft Non-Volley Zone (Kitchen) before ball bounces.",
+      foulsCN: "在非截击区（厨房区）内凌空截击，或截击后身体动量踩入厨房区均为犯规。"
+    },
+    "Floorball": {
+      name: "Floorball (旱地冰球 / 软式曲棍球)",
+      points: "3v3 or mini-goal match (first to 3 goals or highest score in 5 mins).",
+      pointsCN: "小场地3对3或单挑射门，先进3球或5分钟定时获胜。",
+      service: "Face-off at center dot or hit-in from nearest boundary.",
+      serviceCN: "中圈争球开球；出界球在距离界墙1米处争球开球。",
+      fouls: "Stick blade lifted above waist/knee, stick checking, kicking ball to another player.",
+      foulsCN: "严禁高杆（杆头超过膝盖/腰部）、打杆挑杆、故意脚传球或身体冲撞。"
+    },
+    "Ultimate Frisbee": {
+      name: "Ultimate Frisbee (极限飞盘 / 飞盘挑战)",
+      points: "First to 5 points (end-zone catches) or Accuracy Target Duel (most hits out of 10 throws).",
+      pointsCN: "端区达阵先得5分获胜，或进行10次标靶准度挑战赛比拼环数。",
+      service: "Pull (throw-off) from end zone line to start play.",
+      serviceCN: "防守方在己方端区底线向进攻方开盘（Pull）。",
+      fouls: "No physical contact; 10-second stall count; running while holding disc.",
+      foulsCN: "持盘人不可走步（只可转动支撑脚），防守报数10秒出盘，无身体冲撞。"
+    },
+    "Swimming": {
+      name: "Swimming (游泳挑战)",
+      points: "Head-to-head 50m / 100m sprint ladder (fastest touch pad/wall time).",
+      pointsCN: "50米或100米水上排位对决，先触壁者或计时更快者获胜。",
+      service: "Dive start from block or push start from pool wall on whistle.",
+      serviceCN: "听发令哨声从跳台出发或水下蹬壁出发。",
+      fouls: "False start, pulling lane line, stroke technique infractions (e.g., non-simultaneous breaststroke kick).",
+      foulsCN: "抢跳抢发、拉拽泳道线、蛙泳双腿不同步蹬水等判为犯规。"
+    },
+    "Tennis": {
+      name: "Tennis (网球)",
+      points: "Tie-break ladder (first to 7 points, win by 2) or Short Set (first to 4 games).",
+      pointsCN: "课堂采用抢七决胜（先到7分且领先2分）或4局短盘制快速决胜。",
+      service: "Overhand serve cross-court into service box; two serves allowed.",
+      serviceCN: "斜对角发球落入发球区，允许一发和二发。",
+      fouls: "Foot fault, double bounce, net touch.",
+      foulsCN: "发球踩线、球在己方两次着地、击球时身体或球拍触网即判失分。"
+    },
+    "Basketball 1v1": {
+      name: "Basketball 1v1 (篮球单挑)",
+      points: "First to 7 or 11 points (1s and 2s). Clearance to 3-point line on change of possession.",
+      pointsCN: "先得7分或11分（三分线外2分，线内1分）；交换球权须回线出三分区。",
+      service: "Check ball at the top of the key after every dead ball.",
+      serviceCN: "弧顶洗球（Check-ball）开始进攻。",
+      fouls: "Calling own fouls or student referee calls: 3 fouls = 1 point penalty.",
+      foulsCN: "打手、走步、二次运球由学生裁判判罚，累计3次犯规自动判对方得1分。"
+    },
+    "Volleyball": {
+      name: "Volleyball (气排球 / 排球)",
+      points: "Rally scoring to 15 points (win by 2).",
+      pointsCN: "15分每球得分制，先得15分且领先2分者获胜。",
+      service: "Behind baseline; must cross net within antenna boundaries.",
+      serviceCN: "端线后发球，球不得触标志杆，发球直接得分或出界。",
+      fouls: "Over 3 hits on one side, net touch, catching/carrying the ball.",
+      foulsCN: "四次触球、身体触网、持球或连击均为违例。"
+    },
+    "Football / Panna": {
+      name: "Football / Panna (笼式足球 / 点球决斗)",
+      points: "First to 2 goals OR instant win on 'Panna' (nutmeg through defender's legs).",
+      pointsCN: "先入2球获胜；或成功穿裆过人（Panna）即刻直接绝杀获胜。",
+      service: "Rock-paper-scissors for kickoff ball at center dot.",
+      serviceCN: "猜拳开球，防守方退后2米。",
+      fouls: "No physical boarding/tackles, hands on walls, or slide tackles.",
+      foulsCN: "严禁铲球、推搡界墙或危险身体冲撞。"
+    },
+    "Squash": {
+      name: "Squash (壁球)",
+      points: "First to 11 points (PAR-11 rally scoring).",
+      pointsCN: "11分每球得分制（PAR-11）。",
+      service: "One foot inside service box; ball must strike front wall above service line.",
+      serviceCN: "发球脚踩发球格，球须打在发球线与边界线之间的前墙。",
+      fouls: "Ball hitting the tin (metal bottom), out of court, interference (stroke/let).",
+      foulsCN: "球击中响板（底板）、打出上红线；遮挡阻碍判Let或Stroke。"
+    },
+    "Dodgeball 1v1": {
+      name: "Dodgeball 1v1 (躲避球单挑)",
+      points: "Best of 3 rounds (first to eliminate opponent 2 times).",
+      pointsCN: "三局两胜制，率先击中对手两次者胜出。",
+      service: "Both players start on baseline; rush to center ball on whistle.",
+      serviceCN: "开局从底线起跑争夺中线球。",
+      fouls: "Headshots are invalid; catching opponent throw eliminates the thrower.",
+      foulsCN: "击中头部无效且警告；空手接住对手投掷球则投掷方直接出局。"
+    },
+    "Handball": {
+      name: "Handball (手球攻防)",
+      points: "First to 3 goals (or 5 penalty shootout throws).",
+      pointsCN: "3球决胜，或进行5轮7米点球攻防决胜。",
+      service: "Center throw-off or referee drop ball.",
+      serviceCN: "中圈掷球开赛。",
+      fouls: "More than 3 steps or 3 seconds holding ball; stepping in the 6m goalie crease.",
+      foulsCN: "持球超过3步或3秒、踩踏6米禁区界线均为犯规。"
+    },
+    "Track & Field": {
+      name: "Track & Field (田径冲刺)",
+      points: "Head-to-head 60m / 100m match sprint ladder.",
+      pointsCN: "60米或100米单挑直道冲刺，先冲过终点线者胜。",
+      service: "Commands: 'On your marks', 'Set', whistle / clap.",
+      serviceCN: "口令：“各就位”、“预备”、发令鸣笛/击板。",
+      fouls: "False start (1 warning, second false start DQ), lane obstruction.",
+      foulsCN: "抢跑判负、串道阻碍他人跑步立即判负。"
+    },
+    "Fitness / Beep": {
+      name: "Fitness / Beep (体能挑战)",
+      points: "Head-to-head challenge: Beep test shuttle level or sync rep counter (Push-ups / Plank hold).",
+      pointsCN: "折返跑多跑一级者胜；或平板支撑/引体向上多坚持1次/秒者获胜。",
+      service: "Synchronized audio countdown start.",
+      serviceCN: "音响节拍同时开测。",
+      fouls: "Incomplete range of motion, stopping before beep.",
+      foulsCN: "动作不标准（未过下巴/未触地）、未跟上节拍两次即淘汰。"
+    },
+    "Judo / Combat": {
+      name: "Martial Arts / Judo (武术与柔道)",
+      points: "First to achieve Ippon (clean throw) or 2 Waza-ari points (control hold 15s).",
+      pointsCN: "一本（干净利落的摔投）直接胜出，或压技固定15秒积技有一分。",
+      service: "Bowing in (Rei) at tatami safety zone.",
+      serviceCN: "入席行礼，由裁判宣布“Hajime 开始”。",
+      fouls: "Striking, head-diving, dangerous joint manipulation.",
+      foulsCN: "禁止拳击脚踢、头部触地动作，违者取消比赛资格。"
+    }
+  };
+
   function persist() {
     localStorage.setItem('pe_active_sport', activeSport);
     localStorage.setItem('pe_active_sport_cn', activeSportCN);
@@ -641,6 +834,13 @@
       activeSport = enName;
       activeSportCN = cnName;
       document.getElementById('setting-sport-name').value = `${activeSport} ${activeSportCN}`;
+      
+      // Auto sync dropdown in rules screen if it exists
+      const dropdown = document.getElementById('rule-sport-dropdown');
+      if (dropdown && sportRules[enName]) {
+        dropdown.value = enName;
+        renderSportRuleDetails(enName);
+      }
       persist();
     }
   }
@@ -661,11 +861,46 @@
     }
   }
 
+  function renderSportRuleDetails(sportKey) {
+    const rule = sportRules[sportKey];
+    const container = document.getElementById('sport-rule-content');
+    if (!rule) {
+      container.innerHTML = `<p style="color: #64748b;">Custom sport selected. Teacher defines scoring and fault parameters.</p>`;
+      return;
+    }
+    container.innerHTML = `
+      <div style="font-weight: 800; color: #1e3a8a; margin-bottom: 0.35rem; font-size: 0.85rem;">${rule.name}</div>
+      <div style="margin-bottom: 0.4rem;">
+        <span style="font-weight: 700; color: #0f172a; font-size: 0.75rem;">Match Scoring 胜负判定:</span>
+        <p style="margin: 2px 0;">${rule.points}</p>
+        <p style="color: #64748b; margin: 0;">${rule.pointsCN}</p>
+      </div>
+      <div style="margin-bottom: 0.4rem;">
+        <span style="font-weight: 700; color: #0f172a; font-size: 0.75rem;">Serving & Kickoff 发球与开球:</span>
+        <p style="margin: 2px 0;">${rule.service}</p>
+        <p style="color: #64748b; margin: 0;">${rule.serviceCN}</p>
+      </div>
+      <div>
+        <span style="font-weight: 700; color: #b91c1c; font-size: 0.75rem;">Common Fouls 常见违例与失误:</span>
+        <p style="margin: 2px 0;">${rule.fouls}</p>
+        <p style="color: #64748b; margin: 0;">${rule.foulsCN}</p>
+      </div>
+    `;
+  }
+
   function showScreen(screenId) {
     ['screen-home', 'screen-info', 'screen-settings', 'screen-setup', 'screen-standings', 'screen-stats', 'screen-referee', 'screen-winner', 'screen-loser'].forEach(id => {
       document.getElementById(id).classList.add('hidden');
     });
     document.getElementById(screenId).classList.remove('hidden');
+
+    if (screenId === 'screen-info') {
+      const dropdown = document.getElementById('rule-sport-dropdown');
+      if (dropdown) {
+        if (sportRules[activeSport]) dropdown.value = activeSport;
+        renderSportRuleDetails(dropdown.value);
+      }
+    }
   }
 
   function openTournaments() {
@@ -1034,16 +1269,17 @@
     showScreen('screen-home');
   }
 
-  // Restore saved sport selection
+  // Restore saved sport selection and init rule dropdown
   (function initSportSelection() {
     updateButtonLabels();
     document.querySelectorAll('.carousel-card').forEach(card => {
       const title = card.querySelector('.carousel-sport-title').innerText;
-      if (title.toLowerCase() === activeSport.toLowerCase()) {
+      if (title.toLowerCase() === activeSport.toLowerCase() || activeSport.toLowerCase().includes(title.toLowerCase())) {
         document.querySelectorAll('.carousel-card').forEach(c => c.classList.remove('active'));
         card.classList.add('active');
       }
     });
+    renderSportRuleDetails("Badminton");
   })();
 
   showScreen('screen-home');
