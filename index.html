@@ -19,18 +19,26 @@
     .nav-btn-left { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 1.35rem; cursor: pointer; color: inherit; display: flex; align-items: center; }
     .nav-icons-right { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); display: flex; gap: 0.85rem; font-size: 1.15rem; cursor: pointer; color: #475569; }
 
-    /* Top Bar Mini Logo (Aspect ratio tailored for YK Pao banner) */
     .topbar-logo { height: 26px; max-width: 105px; width: auto; object-fit: contain; position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); }
 
     /* Content Area */
     .content-area { flex: 1; overflow-y: auto; padding: 1rem; padding-bottom: 6rem; }
 
-    /* Home View (Wide logo treatment) */
-    .home-hero { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 75vh; text-align: center; padding: 0 1rem; }
-    .home-logo { width: 85%; max-width: 320px; height: auto; object-fit: contain; margin-bottom: 1.5rem; }
-    .home-title { font-size: 1.75rem; font-weight: 900; color: #2e7d32; margin-bottom: 0.25rem; letter-spacing: -0.02em; }
-    .home-subtitle { font-size: 0.85rem; color: #64748b; margin-bottom: 2rem; }
-    .home-nav-box { width: 100%; max-width: 340px; display: flex; flex-direction: column; gap: 0.75rem; }
+    /* Home View */
+    .home-hero { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 1rem; text-align: center; }
+    .home-logo { width: 75%; max-width: 270px; height: auto; object-fit: contain; margin-bottom: 0.75rem; }
+    .home-title { font-size: 1.55rem; font-weight: 900; color: #2e7d32; margin-bottom: 0.15rem; letter-spacing: -0.02em; }
+    .home-subtitle { font-size: 0.8rem; color: #64748b; margin-bottom: 1rem; }
+
+    /* Expanded School Sport Selector */
+    .sport-section { width: 100%; max-width: 420px; margin-bottom: 1.25rem; text-align: left; }
+    .sport-section-label { font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 0.4rem; display: block; }
+    .sport-chips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; margin-bottom: 0.4rem; max-height: 200px; overflow-y: auto; padding-right: 2px; }
+    .sport-chip { padding: 0.5rem 0.25rem; border-radius: 8px; border: 1.5px solid #e2e8f0; background: #f8fafc; font-size: 0.72rem; font-weight: 600; color: #334155; text-align: center; cursor: pointer; transition: all 0.15s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .sport-chip.active { background: #eff6ff; border-color: #255d8f; color: #1e3a8a; font-weight: 700; }
+    .custom-sport-input { width: 100%; border: 1px solid #cbd5e1; border-radius: 6px; padding: 0.45rem 0.6rem; font-size: 0.75rem; outline: none; margin-top: 0.25rem; }
+
+    .home-nav-box { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 0.65rem; }
     .btn-home-primary { background: #255d8f; color: #fff; border: none; border-radius: 10px; padding: 0.85rem; font-weight: 700; font-size: 0.9rem; cursor: pointer; }
     .btn-home-outline { background: #fff; color: #255d8f; border: 1.5px solid #255d8f; border-radius: 10px; padding: 0.85rem; font-weight: 700; font-size: 0.9rem; cursor: pointer; }
 
@@ -120,7 +128,7 @@
 <body>
 <div class="app-shell">
 
-  <!-- 1. HOME SCREEN (With YK Pao Logo) -->
+  <!-- 1. HOME SCREEN -->
   <section id="screen-home">
     <div class="top-bar">
       ATP PE Tournament
@@ -134,8 +142,31 @@
       
       <h1 class="home-title">PE LADDER</h1>
       <p class="home-subtitle">YK Pao School Physical Education</p>
+
+      <!-- EXPANDED SPORT SELECTOR -->
+      <div class="sport-section">
+        <label class="sport-section-label">Select Active Sport</label>
+        <div class="sport-chips-grid">
+          <div class="sport-chip active" onclick="selectSport('Badminton', this)">🏸 Badminton</div>
+          <div class="sport-chip" onclick="selectSport('Table Tennis', this)">🏓 Table Tennis</div>
+          <div class="sport-chip" onclick="selectSport('Tennis', this)">🎾 Tennis</div>
+          <div class="sport-chip" onclick="selectSport('Pickleball', this)">🥒 Pickleball</div>
+          <div class="sport-chip" onclick="selectSport('Basketball 1v1', this)">🏀 Basketball</div>
+          <div class="sport-chip" onclick="selectSport('Volleyball', this)">🏐 Volleyball</div>
+          <div class="sport-chip" onclick="selectSport('Football / Panna', this)">⚽ Football</div>
+          <div class="sport-chip" onclick="selectSport('Squash', this)">👟 Squash</div>
+          <div class="sport-chip" onclick="selectSport('Dodgeball 1v1', this)">🎯 Dodgeball</div>
+          <div class="sport-chip" onclick="selectSport('Handball', this)">🤾 Handball</div>
+          <div class="sport-chip" onclick="selectSport('Track & Field', this)">🏃 Track & Field</div>
+          <div class="sport-chip" onclick="selectSport('Fitness / Beep', this)">⏱️ Fitness</div>
+          <div class="sport-chip" onclick="selectSport('Judo / Combat', this)">🥋 Martial Arts</div>
+          <div class="sport-chip" onclick="selectSport('Custom', this)">✏️ Other</div>
+        </div>
+        <input type="text" id="custom-sport-input" class="custom-sport-input hidden" placeholder="Type sport name..." oninput="setCustomSport(this.value)" />
+      </div>
+
       <div class="home-nav-box">
-        <button class="btn-home-primary" onclick="openTournaments()">👤 TOURNAMENT</button>
+        <button class="btn-home-primary" onclick="openTournaments()">👤 OPEN TOURNAMENT</button>
         <button class="btn-home-outline" onclick="openGroups()">👥 CLASS ROSTERS</button>
       </div>
     </div>
@@ -165,6 +196,12 @@
       Settings
     </div>
     <div class="content-area">
+      <div class="setting-section-title">Active Sport</div>
+      <div class="setting-card">
+        <label style="font-size: 0.85rem; font-weight: 600;">Sport Name</label>
+        <input type="text" id="setting-sport-name" class="setting-input" value="Badminton" onchange="updateSportFromSettings(this.value)" />
+      </div>
+
       <div class="setting-section-title">Security & Teacher Controls</div>
       <div class="setting-card">
         <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -207,13 +244,13 @@
     </div>
   </section>
 
-  <!-- 5. TOURNAMENT STANDINGS (With YK Pao Mini Logo on top left) -->
+  <!-- 5. TOURNAMENT STANDINGS -->
   <section id="screen-standings" class="hidden">
     <div class="top-bar" style="flex-direction: column; height: 60px;">
       <button class="nav-btn-left" onclick="showScreen('screen-home')">‹</button>
       <img src="YKPlogo.png" alt="Logo" class="topbar-logo" style="left: 3rem;" onerror="this.style.display='none'" />
       <div style="font-size: 0.95rem; font-weight: 800;" id="tourney-name-header">Badminton</div>
-      <div style="font-size: 0.7rem; color: #64748b;" id="player-count-label">25 players</div>
+      <div style="font-size: 0.7rem; color: #64748b;" id="player-count-label">0 players</div>
       <div class="nav-icons-right">
         <span title="Collective Statistics & Podiums" onclick="openStatistics()">📊</span>
       </div>
@@ -236,23 +273,23 @@
     <div class="content-area">
       <div class="metrics-row">
         <div class="metric-box">
-          <div class="metric-icon">🎾</div>
-          <div class="metric-value val-blue" id="stat-total-matches">15</div>
+          <div class="metric-icon" id="stat-sport-icon">🎾</div>
+          <div class="metric-value val-blue" id="stat-total-matches">0</div>
           <div class="metric-label">Matches played</div>
         </div>
         <div class="metric-box">
           <div class="metric-icon">📊</div>
-          <div class="metric-value val-green" id="stat-avg-matches">1.2</div>
+          <div class="metric-value val-green" id="stat-avg-matches">0.0</div>
           <div class="metric-label">Avg/player</div>
         </div>
         <div class="metric-box">
           <div class="metric-icon">📢</div>
-          <div class="metric-value val-orange" id="stat-avg-refs">0.5</div>
+          <div class="metric-value val-orange" id="stat-avg-refs">0.0</div>
           <div class="metric-label">Officiated/player</div>
         </div>
       </div>
 
-      <div class="podium-section-header" id="podium-category-header">🎾 Most matches played</div>
+      <div class="podium-section-header" id="podium-category-header">Most matches played</div>
       <div id="podium-cards-container"></div>
 
       <div class="pager-dots">
@@ -332,7 +369,7 @@
 </div>
 
 <script>
-  let tournamentName = "Badminton";
+  let activeSport = localStorage.getItem('pe_active_sport') || "Badminton";
   
   let players = JSON.parse(localStorage.getItem('pe_atp_players')) || [
     { id: 1, name: "Denis Julia", points: 28.5, wins: 8, losses: 2, refs: 1, initialRank: 6 },
@@ -359,9 +396,41 @@
   let selectedLoser = null;
 
   function persist() {
+    localStorage.setItem('pe_active_sport', activeSport);
     localStorage.setItem('pe_atp_players', JSON.stringify(players));
     localStorage.setItem('pe_atp_config', JSON.stringify(config));
     localStorage.setItem('pe_atp_history', JSON.stringify(matchHistory));
+  }
+
+  function selectSport(name, chipElement) {
+    document.querySelectorAll('.sport-chip').forEach(c => c.classList.remove('active'));
+    chipElement.classList.add('active');
+
+    const customInput = document.getElementById('custom-sport-input');
+    if (name === 'Custom') {
+      customInput.classList.remove('hidden');
+      customInput.focus();
+    } else {
+      customInput.classList.add('hidden');
+      activeSport = name;
+      document.getElementById('setting-sport-name').value = activeSport;
+      persist();
+    }
+  }
+
+  function setCustomSport(val) {
+    if (val.trim()) {
+      activeSport = val.trim();
+      document.getElementById('setting-sport-name').value = activeSport;
+      persist();
+    }
+  }
+
+  function updateSportFromSettings(val) {
+    if (val.trim()) {
+      activeSport = val.trim();
+      persist();
+    }
   }
 
   function showScreen(screenId) {
@@ -384,7 +453,7 @@
   function renderStandings() {
     players.sort((a, b) => b.points - a.points);
     document.getElementById('player-count-label').innerText = `${players.length} players`;
-    document.getElementById('tourney-name-header').innerText = tournamentName;
+    document.getElementById('tourney-name-header').innerText = activeSport;
 
     const list = document.getElementById('tournament-player-list');
     list.innerHTML = players.map((p, idx) => {
@@ -406,7 +475,7 @@
 
   function openStatistics() {
     showScreen('screen-stats');
-    document.getElementById('stats-title-label').innerText = `Statistics - ${tournamentName}`;
+    document.getElementById('stats-title-label').innerText = `Statistics - ${activeSport}`;
     
     const totalMatches = players.reduce((sum, p) => sum + p.wins + p.losses, 0) / 2;
     const avgMatches = (players.length ? (totalMatches * 2 / players.length) : 0).toFixed(1);
@@ -431,21 +500,21 @@
 
     const categories = [
       {
-        title: "🎾 Most matches played",
+        title: `Most matches played`,
         unit: "matches",
         sortFn: (a, b) => (b.wins + b.losses) - (a.wins + a.losses),
         valFn: (p) => p.wins + p.losses,
         type: "matches"
       },
       {
-        title: "🏆 Most victories",
+        title: "Most victories",
         unit: "victories",
         sortFn: (a, b) => b.wins - a.wins,
         valFn: (p) => p.wins,
         type: "wins"
       },
       {
-        title: "📈 Best progressions",
+        title: "Best progressions",
         unit: "ranks",
         sortFn: (a, b) => {
           const aRank = players.indexOf(a) + 1;
@@ -459,7 +528,7 @@
         type: "progression"
       },
       {
-        title: "📢 Most officiated",
+        title: "Most officiated",
         unit: "arbitrations",
         sortFn: (a, b) => b.refs - a.refs,
         valFn: (p) => p.refs,
@@ -696,7 +765,7 @@
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = `${tournamentName}_Standings_${new Date().toISOString().slice(0, 10)}.csv`;
+    link.download = `${activeSport.replace(/[^a-zA-Z0-9]/g, '_')}_Standings_${new Date().toISOString().slice(0, 10)}.csv`;
     link.click();
   }
 
